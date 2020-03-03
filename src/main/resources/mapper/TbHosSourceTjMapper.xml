@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbHosSourceTjMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbHosSourceTj">
+    <id column="YLJGBM" jdbcType="VARCHAR" property="YLJGBM" />
+    <id column="TJ_TIME" jdbcType="VARCHAR" property="TJ_TIME" />
+    <result column="HYSL" jdbcType="DECIMAL" property="HYSL" />
+    <result column="YYYHY" jdbcType="DECIMAL" property="YYYHY" />
+    <result column="SYHY" jdbcType="DECIMAL" property="SYHY" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YLJGBM, TJ_TIME, HYSL, YYYHY, SYHY, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHosSourceTjKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_HOS_SOURCE_TJ
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+      and TJ_TIME = #{TJ_TIME,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHosSourceTjKey">
+    delete from TB_HOS_SOURCE_TJ
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+      and TJ_TIME = #{TJ_TIME,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="YLJGBM" keyProperty="YLJGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbHosSourceTj" useGeneratedKeys="true">
+    insert into TB_HOS_SOURCE_TJ (TJ_TIME, HYSL, YYYHY, 
+      SYHY, UPDATETIME, YL1, 
+      YL2)
+    values (#{TJ_TIME,jdbcType=VARCHAR}, #{HYSL,jdbcType=DECIMAL}, #{YYYHY,jdbcType=DECIMAL}, 
+      #{SYHY,jdbcType=DECIMAL}, #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="YLJGBM" keyProperty="YLJGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbHosSourceTj" useGeneratedKeys="true">
+    insert into TB_HOS_SOURCE_TJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TJ_TIME != null">
+        TJ_TIME,
+      </if>
+      <if test="HYSL != null">
+        HYSL,
+      </if>
+      <if test="YYYHY != null">
+        YYYHY,
+      </if>
+      <if test="SYHY != null">
+        SYHY,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TJ_TIME != null">
+        #{TJ_TIME,jdbcType=VARCHAR},
+      </if>
+      <if test="HYSL != null">
+        #{HYSL,jdbcType=DECIMAL},
+      </if>
+      <if test="YYYHY != null">
+        #{YYYHY,jdbcType=DECIMAL},
+      </if>
+      <if test="SYHY != null">
+        #{SYHY,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbHosSourceTj">
+    update TB_HOS_SOURCE_TJ
+    <set>
+      <if test="HYSL != null">
+        HYSL = #{HYSL,jdbcType=DECIMAL},
+      </if>
+      <if test="YYYHY != null">
+        YYYHY = #{YYYHY,jdbcType=DECIMAL},
+      </if>
+      <if test="SYHY != null">
+        SYHY = #{SYHY,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+      and TJ_TIME = #{TJ_TIME,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHosSourceTj">
+    update TB_HOS_SOURCE_TJ
+    set HYSL = #{HYSL,jdbcType=DECIMAL},
+      YYYHY = #{YYYHY,jdbcType=DECIMAL},
+      SYHY = #{SYHY,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+      and TJ_TIME = #{TJ_TIME,jdbcType=VARCHAR}
+  </update>
+</mapper>

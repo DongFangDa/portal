@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbHealthInfoMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbHealthInfo">
+    <id column="INDEXNO" jdbcType="DECIMAL" property="INDEXNO" />
+    <result column="XB" jdbcType="DECIMAL" property="XB" />
+    <result column="NJFB" jdbcType="DECIMAL" property="NJFB" />
+    <result column="RKSL" jdbcType="DECIMAL" property="RKSL" />
+    <result column="ZRKSLBS" jdbcType="DECIMAL" property="ZRKSLBS" />
+    <result column="NF" jdbcType="VARCHAR" property="NF" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INDEXNO, XB, NJFB, RKSL, ZRKSLBS, NF, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.math.BigDecimal" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_HEALTH_INFO
+    where INDEXNO = #{INDEXNO,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal">
+    delete from TB_HEALTH_INFO
+    where INDEXNO = #{INDEXNO,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" keyColumn="INDEXNO" keyProperty="INDEXNO" parameterType="com.wonder.cp.portal.mybatis.po.TbHealthInfo" useGeneratedKeys="true">
+    insert into TB_HEALTH_INFO (XB, NJFB, RKSL, 
+      ZRKSLBS, NF, UPDATETIME, 
+      YL1, YL2)
+    values (#{XB,jdbcType=DECIMAL}, #{NJFB,jdbcType=DECIMAL}, #{RKSL,jdbcType=DECIMAL}, 
+      #{ZRKSLBS,jdbcType=DECIMAL}, #{NF,jdbcType=VARCHAR}, #{UPDATETIME,jdbcType=TIMESTAMP}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="INDEXNO" keyProperty="INDEXNO" parameterType="com.wonder.cp.portal.mybatis.po.TbHealthInfo" useGeneratedKeys="true">
+    insert into TB_HEALTH_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="XB != null">
+        XB,
+      </if>
+      <if test="NJFB != null">
+        NJFB,
+      </if>
+      <if test="RKSL != null">
+        RKSL,
+      </if>
+      <if test="ZRKSLBS != null">
+        ZRKSLBS,
+      </if>
+      <if test="NF != null">
+        NF,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="XB != null">
+        #{XB,jdbcType=DECIMAL},
+      </if>
+      <if test="NJFB != null">
+        #{NJFB,jdbcType=DECIMAL},
+      </if>
+      <if test="RKSL != null">
+        #{RKSL,jdbcType=DECIMAL},
+      </if>
+      <if test="ZRKSLBS != null">
+        #{ZRKSLBS,jdbcType=DECIMAL},
+      </if>
+      <if test="NF != null">
+        #{NF,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbHealthInfo">
+    update TB_HEALTH_INFO
+    <set>
+      <if test="XB != null">
+        XB = #{XB,jdbcType=DECIMAL},
+      </if>
+      <if test="NJFB != null">
+        NJFB = #{NJFB,jdbcType=DECIMAL},
+      </if>
+      <if test="RKSL != null">
+        RKSL = #{RKSL,jdbcType=DECIMAL},
+      </if>
+      <if test="ZRKSLBS != null">
+        ZRKSLBS = #{ZRKSLBS,jdbcType=DECIMAL},
+      </if>
+      <if test="NF != null">
+        NF = #{NF,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INDEXNO = #{INDEXNO,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHealthInfo">
+    update TB_HEALTH_INFO
+    set XB = #{XB,jdbcType=DECIMAL},
+      NJFB = #{NJFB,jdbcType=DECIMAL},
+      RKSL = #{RKSL,jdbcType=DECIMAL},
+      ZRKSLBS = #{ZRKSLBS,jdbcType=DECIMAL},
+      NF = #{NF,jdbcType=VARCHAR},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where INDEXNO = #{INDEXNO,jdbcType=DECIMAL}
+  </update>
+</mapper>

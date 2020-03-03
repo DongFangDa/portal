@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbMedicalRecordTjMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbMedicalRecordTj">
+    <result column="YLJGDM" jdbcType="VARCHAR" property="YLJGDM" />
+    <result column="DZBLZS" jdbcType="DECIMAL" property="DZBLZS" />
+    <result column="JKDAZS" jdbcType="DECIMAL" property="JKDAZS" />
+    <result column="TJBGZS" jdbcType="DECIMAL" property="TJBGZS" />
+    <result column="JYBGZS" jdbcType="DECIMAL" property="JYBGZS" />
+    <result column="JCBGZS" jdbcType="DECIMAL" property="JCBGZS" />
+    <result column="TJSJ" jdbcType="TIMESTAMP" property="TJSJ" />
+    <result column="DATEYM" jdbcType="DECIMAL" property="DATEYM" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <insert id="insert" parameterType="com.wonder.cp.portal.mybatis.po.TbMedicalRecordTj">
+    insert into TB_MEDICAL_RECORD_TJ (YLJGDM, DZBLZS, JKDAZS, 
+      TJBGZS, JYBGZS, JCBGZS, 
+      TJSJ, DATEYM, YL1, 
+      YL2)
+    values (#{YLJGDM,jdbcType=VARCHAR}, #{DZBLZS,jdbcType=DECIMAL}, #{JKDAZS,jdbcType=DECIMAL}, 
+      #{TJBGZS,jdbcType=DECIMAL}, #{JYBGZS,jdbcType=DECIMAL}, #{JCBGZS,jdbcType=DECIMAL}, 
+      #{TJSJ,jdbcType=TIMESTAMP}, #{DATEYM,jdbcType=DECIMAL}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wonder.cp.portal.mybatis.po.TbMedicalRecordTj">
+    insert into TB_MEDICAL_RECORD_TJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="YLJGDM != null">
+        YLJGDM,
+      </if>
+      <if test="DZBLZS != null">
+        DZBLZS,
+      </if>
+      <if test="JKDAZS != null">
+        JKDAZS,
+      </if>
+      <if test="TJBGZS != null">
+        TJBGZS,
+      </if>
+      <if test="JYBGZS != null">
+        JYBGZS,
+      </if>
+      <if test="JCBGZS != null">
+        JCBGZS,
+      </if>
+      <if test="TJSJ != null">
+        TJSJ,
+      </if>
+      <if test="DATEYM != null">
+        DATEYM,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="YLJGDM != null">
+        #{YLJGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="DZBLZS != null">
+        #{DZBLZS,jdbcType=DECIMAL},
+      </if>
+      <if test="JKDAZS != null">
+        #{JKDAZS,jdbcType=DECIMAL},
+      </if>
+      <if test="TJBGZS != null">
+        #{TJBGZS,jdbcType=DECIMAL},
+      </if>
+      <if test="JYBGZS != null">
+        #{JYBGZS,jdbcType=DECIMAL},
+      </if>
+      <if test="JCBGZS != null">
+        #{JCBGZS,jdbcType=DECIMAL},
+      </if>
+      <if test="TJSJ != null">
+        #{TJSJ,jdbcType=TIMESTAMP},
+      </if>
+      <if test="DATEYM != null">
+        #{DATEYM,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

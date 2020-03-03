@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbDicHospitalMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbDicHospital">
+    <id column="YLJGBM" jdbcType="VARCHAR" property="YLJGBM" />
+    <result column="JGMC" jdbcType="VARCHAR" property="JGMC" />
+    <result column="FJGDM" jdbcType="VARCHAR" property="FJGDM" />
+    <result column="JGDJ" jdbcType="DECIMAL" property="JGDJ" />
+    <result column="JGLX" jdbcType="DECIMAL" property="JGLX" />
+    <result column="DLQH" jdbcType="VARCHAR" property="DLQH" />
+    <result column="SFHQHY" jdbcType="VARCHAR" property="SFHQHY" />
+    <result column="SFHQZLSJ" jdbcType="VARCHAR" property="SFHQZLSJ" />
+    <result column="SFJRZNTX" jdbcType="VARCHAR" property="SFJRZNTX" />
+    <result column="SSYLT" jdbcType="VARCHAR" property="SSYLT" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YLJGBM, JGMC, FJGDM, JGDJ, JGLX, DLQH, SFHQHY, SFHQZLSJ, SFJRZNTX, SSYLT, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_DIC_HOSPITAL
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_DIC_HOSPITAL
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="YLJGBM" keyProperty="YLJGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbDicHospital" useGeneratedKeys="true">
+    insert into TB_DIC_HOSPITAL (JGMC, FJGDM, JGDJ, 
+      JGLX, DLQH, SFHQHY, 
+      SFHQZLSJ, SFJRZNTX, SSYLT, 
+      YL1, YL2)
+    values (#{JGMC,jdbcType=VARCHAR}, #{FJGDM,jdbcType=VARCHAR}, #{JGDJ,jdbcType=DECIMAL}, 
+      #{JGLX,jdbcType=DECIMAL}, #{DLQH,jdbcType=VARCHAR}, #{SFHQHY,jdbcType=VARCHAR}, 
+      #{SFHQZLSJ,jdbcType=VARCHAR}, #{SFJRZNTX,jdbcType=VARCHAR}, #{SSYLT,jdbcType=VARCHAR}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="YLJGBM" keyProperty="YLJGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbDicHospital" useGeneratedKeys="true">
+    insert into TB_DIC_HOSPITAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="JGMC != null">
+        JGMC,
+      </if>
+      <if test="FJGDM != null">
+        FJGDM,
+      </if>
+      <if test="JGDJ != null">
+        JGDJ,
+      </if>
+      <if test="JGLX != null">
+        JGLX,
+      </if>
+      <if test="DLQH != null">
+        DLQH,
+      </if>
+      <if test="SFHQHY != null">
+        SFHQHY,
+      </if>
+      <if test="SFHQZLSJ != null">
+        SFHQZLSJ,
+      </if>
+      <if test="SFJRZNTX != null">
+        SFJRZNTX,
+      </if>
+      <if test="SSYLT != null">
+        SSYLT,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="JGMC != null">
+        #{JGMC,jdbcType=VARCHAR},
+      </if>
+      <if test="FJGDM != null">
+        #{FJGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="JGDJ != null">
+        #{JGDJ,jdbcType=DECIMAL},
+      </if>
+      <if test="JGLX != null">
+        #{JGLX,jdbcType=DECIMAL},
+      </if>
+      <if test="DLQH != null">
+        #{DLQH,jdbcType=VARCHAR},
+      </if>
+      <if test="SFHQHY != null">
+        #{SFHQHY,jdbcType=VARCHAR},
+      </if>
+      <if test="SFHQZLSJ != null">
+        #{SFHQZLSJ,jdbcType=VARCHAR},
+      </if>
+      <if test="SFJRZNTX != null">
+        #{SFJRZNTX,jdbcType=VARCHAR},
+      </if>
+      <if test="SSYLT != null">
+        #{SSYLT,jdbcType=VARCHAR},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbDicHospital">
+    update TB_DIC_HOSPITAL
+    <set>
+      <if test="JGMC != null">
+        JGMC = #{JGMC,jdbcType=VARCHAR},
+      </if>
+      <if test="FJGDM != null">
+        FJGDM = #{FJGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="JGDJ != null">
+        JGDJ = #{JGDJ,jdbcType=DECIMAL},
+      </if>
+      <if test="JGLX != null">
+        JGLX = #{JGLX,jdbcType=DECIMAL},
+      </if>
+      <if test="DLQH != null">
+        DLQH = #{DLQH,jdbcType=VARCHAR},
+      </if>
+      <if test="SFHQHY != null">
+        SFHQHY = #{SFHQHY,jdbcType=VARCHAR},
+      </if>
+      <if test="SFHQZLSJ != null">
+        SFHQZLSJ = #{SFHQZLSJ,jdbcType=VARCHAR},
+      </if>
+      <if test="SFJRZNTX != null">
+        SFJRZNTX = #{SFJRZNTX,jdbcType=VARCHAR},
+      </if>
+      <if test="SSYLT != null">
+        SSYLT = #{SSYLT,jdbcType=VARCHAR},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbDicHospital">
+    update TB_DIC_HOSPITAL
+    set JGMC = #{JGMC,jdbcType=VARCHAR},
+      FJGDM = #{FJGDM,jdbcType=VARCHAR},
+      JGDJ = #{JGDJ,jdbcType=DECIMAL},
+      JGLX = #{JGLX,jdbcType=DECIMAL},
+      DLQH = #{DLQH,jdbcType=VARCHAR},
+      SFHQHY = #{SFHQHY,jdbcType=VARCHAR},
+      SFHQZLSJ = #{SFHQZLSJ,jdbcType=VARCHAR},
+      SFJRZNTX = #{SFJRZNTX,jdbcType=VARCHAR},
+      SSYLT = #{SSYLT,jdbcType=VARCHAR},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServiceMedicalMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServiceMedical">
+    <id column="JGBM" jdbcType="VARCHAR" property="JGBM" />
+    <id column="DATEYM" jdbcType="VARCHAR" property="DATEYM" />
+    <result column="ZLFZZCS" jdbcType="DECIMAL" property="ZLFZZCS" />
+    <result column="CFYY" jdbcType="DECIMAL" property="CFYY" />
+    <result column="CFJC" jdbcType="DECIMAL" property="CFJC" />
+    <result column="CFJY" jdbcType="DECIMAL" property="CFJY" />
+    <result column="QJZZ" jdbcType="DECIMAL" property="QJZZ" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+    <result column="JGMC" jdbcType="VARCHAR" property="JGMC" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    JGBM, DATEYM, ZLFZZCS, CFYY, CFJC, CFJY, QJZZ, YL1, YL2, JGMC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedicalKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_MEDICAL
+    where JGBM = #{JGBM,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedicalKey">
+    delete from TB_SERVICE_MEDICAL
+    where JGBM = #{JGBM,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="JGBM" keyProperty="JGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedical" useGeneratedKeys="true">
+    insert into TB_SERVICE_MEDICAL (DATEYM, ZLFZZCS, CFYY, 
+      CFJC, CFJY, QJZZ, YL1, 
+      YL2, JGMC)
+    values (#{DATEYM,jdbcType=VARCHAR}, #{ZLFZZCS,jdbcType=DECIMAL}, #{CFYY,jdbcType=DECIMAL}, 
+      #{CFJC,jdbcType=DECIMAL}, #{CFJY,jdbcType=DECIMAL}, #{QJZZ,jdbcType=DECIMAL}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR}, #{JGMC,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="JGBM" keyProperty="JGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedical" useGeneratedKeys="true">
+    insert into TB_SERVICE_MEDICAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="DATEYM != null">
+        DATEYM,
+      </if>
+      <if test="ZLFZZCS != null">
+        ZLFZZCS,
+      </if>
+      <if test="CFYY != null">
+        CFYY,
+      </if>
+      <if test="CFJC != null">
+        CFJC,
+      </if>
+      <if test="CFJY != null">
+        CFJY,
+      </if>
+      <if test="QJZZ != null">
+        QJZZ,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+      <if test="JGMC != null">
+        JGMC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="DATEYM != null">
+        #{DATEYM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZLFZZCS != null">
+        #{ZLFZZCS,jdbcType=DECIMAL},
+      </if>
+      <if test="CFYY != null">
+        #{CFYY,jdbcType=DECIMAL},
+      </if>
+      <if test="CFJC != null">
+        #{CFJC,jdbcType=DECIMAL},
+      </if>
+      <if test="CFJY != null">
+        #{CFJY,jdbcType=DECIMAL},
+      </if>
+      <if test="QJZZ != null">
+        #{QJZZ,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+      <if test="JGMC != null">
+        #{JGMC,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedical">
+    update TB_SERVICE_MEDICAL
+    <set>
+      <if test="ZLFZZCS != null">
+        ZLFZZCS = #{ZLFZZCS,jdbcType=DECIMAL},
+      </if>
+      <if test="CFYY != null">
+        CFYY = #{CFYY,jdbcType=DECIMAL},
+      </if>
+      <if test="CFJC != null">
+        CFJC = #{CFJC,jdbcType=DECIMAL},
+      </if>
+      <if test="CFJY != null">
+        CFJY = #{CFJY,jdbcType=DECIMAL},
+      </if>
+      <if test="QJZZ != null">
+        QJZZ = #{QJZZ,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+      <if test="JGMC != null">
+        JGMC = #{JGMC,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where JGBM = #{JGBM,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedical">
+    update TB_SERVICE_MEDICAL
+    set ZLFZZCS = #{ZLFZZCS,jdbcType=DECIMAL},
+      CFYY = #{CFYY,jdbcType=DECIMAL},
+      CFJC = #{CFJC,jdbcType=DECIMAL},
+      CFJY = #{CFJY,jdbcType=DECIMAL},
+      QJZZ = #{QJZZ,jdbcType=DECIMAL},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR},
+      JGMC = #{JGMC,jdbcType=VARCHAR}
+    where JGBM = #{JGBM,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </update>
+</mapper>

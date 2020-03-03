@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbAcquisitionPublicDicMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicDic">
+    <id column="CZDM" jdbcType="VARCHAR" property="CZDM" />
+    <result column="CZMC" jdbcType="VARCHAR" property="CZMC" />
+    <result column="CZQX_ROLE_DM" jdbcType="VARCHAR" property="CZQX_ROLE_DM" />
+    <result column="CZQX_ROLE_MC" jdbcType="VARCHAR" property="CZQX_ROLE_MC" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CZDM, CZMC, CZQX_ROLE_DM, CZQX_ROLE_MC, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_ACQUISITION_PUBLIC_DIC
+    where CZDM = #{CZDM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_ACQUISITION_PUBLIC_DIC
+    where CZDM = #{CZDM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="CZDM" keyProperty="CZDM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicDic" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_PUBLIC_DIC (CZMC, CZQX_ROLE_DM, CZQX_ROLE_MC, 
+      UPDATETIME, YL1, YL2
+      )
+    values (#{CZMC,jdbcType=VARCHAR}, #{CZQX_ROLE_DM,jdbcType=VARCHAR}, #{CZQX_ROLE_MC,jdbcType=VARCHAR}, 
+      #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="CZDM" keyProperty="CZDM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicDic" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_PUBLIC_DIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="CZMC != null">
+        CZMC,
+      </if>
+      <if test="CZQX_ROLE_DM != null">
+        CZQX_ROLE_DM,
+      </if>
+      <if test="CZQX_ROLE_MC != null">
+        CZQX_ROLE_MC,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="CZMC != null">
+        #{CZMC,jdbcType=VARCHAR},
+      </if>
+      <if test="CZQX_ROLE_DM != null">
+        #{CZQX_ROLE_DM,jdbcType=VARCHAR},
+      </if>
+      <if test="CZQX_ROLE_MC != null">
+        #{CZQX_ROLE_MC,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicDic">
+    update TB_ACQUISITION_PUBLIC_DIC
+    <set>
+      <if test="CZMC != null">
+        CZMC = #{CZMC,jdbcType=VARCHAR},
+      </if>
+      <if test="CZQX_ROLE_DM != null">
+        CZQX_ROLE_DM = #{CZQX_ROLE_DM,jdbcType=VARCHAR},
+      </if>
+      <if test="CZQX_ROLE_MC != null">
+        CZQX_ROLE_MC = #{CZQX_ROLE_MC,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CZDM = #{CZDM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicDic">
+    update TB_ACQUISITION_PUBLIC_DIC
+    set CZMC = #{CZMC,jdbcType=VARCHAR},
+      CZQX_ROLE_DM = #{CZQX_ROLE_DM,jdbcType=VARCHAR},
+      CZQX_ROLE_MC = #{CZQX_ROLE_MC,jdbcType=VARCHAR},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where CZDM = #{CZDM,jdbcType=VARCHAR}
+  </update>
+</mapper>

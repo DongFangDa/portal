@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbAcquisitionPublicRecordMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicRecord">
+    <id column="BM" jdbcType="VARCHAR" property="BM" />
+    <result column="XTBM" jdbcType="VARCHAR" property="XTBM" />
+    <result column="CZDM" jdbcType="VARCHAR" property="CZDM" />
+    <result column="JTCZNR" jdbcType="VARCHAR" property="JTCZNR" />
+    <result column="CZYHBM" jdbcType="VARCHAR" property="CZYHBM" />
+    <result column="CZYHM" jdbcType="VARCHAR" property="CZYHM" />
+    <result column="CZTIME" jdbcType="TIMESTAMP" property="CZTIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BM, XTBM, CZDM, JTCZNR, CZYHBM, CZYHM, CZTIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_ACQUISITION_PUBLIC_RECORD
+    where BM = #{BM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_ACQUISITION_PUBLIC_RECORD
+    where BM = #{BM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="BM" keyProperty="BM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicRecord" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_PUBLIC_RECORD (XTBM, CZDM, JTCZNR, 
+      CZYHBM, CZYHM, CZTIME, 
+      YL1, YL2)
+    values (#{XTBM,jdbcType=VARCHAR}, #{CZDM,jdbcType=VARCHAR}, #{JTCZNR,jdbcType=VARCHAR}, 
+      #{CZYHBM,jdbcType=VARCHAR}, #{CZYHM,jdbcType=VARCHAR}, #{CZTIME,jdbcType=TIMESTAMP}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="BM" keyProperty="BM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicRecord" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_PUBLIC_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="XTBM != null">
+        XTBM,
+      </if>
+      <if test="CZDM != null">
+        CZDM,
+      </if>
+      <if test="JTCZNR != null">
+        JTCZNR,
+      </if>
+      <if test="CZYHBM != null">
+        CZYHBM,
+      </if>
+      <if test="CZYHM != null">
+        CZYHM,
+      </if>
+      <if test="CZTIME != null">
+        CZTIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="XTBM != null">
+        #{XTBM,jdbcType=VARCHAR},
+      </if>
+      <if test="CZDM != null">
+        #{CZDM,jdbcType=VARCHAR},
+      </if>
+      <if test="JTCZNR != null">
+        #{JTCZNR,jdbcType=VARCHAR},
+      </if>
+      <if test="CZYHBM != null">
+        #{CZYHBM,jdbcType=VARCHAR},
+      </if>
+      <if test="CZYHM != null">
+        #{CZYHM,jdbcType=VARCHAR},
+      </if>
+      <if test="CZTIME != null">
+        #{CZTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicRecord">
+    update TB_ACQUISITION_PUBLIC_RECORD
+    <set>
+      <if test="XTBM != null">
+        XTBM = #{XTBM,jdbcType=VARCHAR},
+      </if>
+      <if test="CZDM != null">
+        CZDM = #{CZDM,jdbcType=VARCHAR},
+      </if>
+      <if test="JTCZNR != null">
+        JTCZNR = #{JTCZNR,jdbcType=VARCHAR},
+      </if>
+      <if test="CZYHBM != null">
+        CZYHBM = #{CZYHBM,jdbcType=VARCHAR},
+      </if>
+      <if test="CZYHM != null">
+        CZYHM = #{CZYHM,jdbcType=VARCHAR},
+      </if>
+      <if test="CZTIME != null">
+        CZTIME = #{CZTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BM = #{BM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionPublicRecord">
+    update TB_ACQUISITION_PUBLIC_RECORD
+    set XTBM = #{XTBM,jdbcType=VARCHAR},
+      CZDM = #{CZDM,jdbcType=VARCHAR},
+      JTCZNR = #{JTCZNR,jdbcType=VARCHAR},
+      CZYHBM = #{CZYHBM,jdbcType=VARCHAR},
+      CZYHM = #{CZYHM,jdbcType=VARCHAR},
+      CZTIME = #{CZTIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where BM = #{BM,jdbcType=VARCHAR}
+  </update>
+</mapper>

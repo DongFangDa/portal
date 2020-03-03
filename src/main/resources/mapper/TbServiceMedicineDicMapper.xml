@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServiceMedicineDicMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServiceMedicineDic">
+    <id column="PRODUCT_ID" jdbcType="VARCHAR" property="PRODUCT_ID" />
+    <result column="NAME_CHN" jdbcType="VARCHAR" property="NAME_CHN" />
+    <result column="PRODUCT_NAME" jdbcType="VARCHAR" property="PRODUCT_NAME" />
+    <result column="TRADE_NAME" jdbcType="VARCHAR" property="TRADE_NAME" />
+    <result column="DOSAGE_FORM_NAME" jdbcType="VARCHAR" property="DOSAGE_FORM_NAME" />
+    <result column="SPEC" jdbcType="VARCHAR" property="SPEC" />
+    <result column="STAND_RATE" jdbcType="VARCHAR" property="STAND_RATE" />
+    <result column="SPEC_UNIT" jdbcType="VARCHAR" property="SPEC_UNIT" />
+    <result column="WRAP_NAME" jdbcType="VARCHAR" property="WRAP_NAME" />
+    <result column="MANUFACTURE_NAME" jdbcType="VARCHAR" property="MANUFACTURE_NAME" />
+    <result column="BID_PRICE" jdbcType="DECIMAL" property="BID_PRICE" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    PRODUCT_ID, NAME_CHN, PRODUCT_NAME, TRADE_NAME, DOSAGE_FORM_NAME, SPEC, STAND_RATE, 
+    SPEC_UNIT, WRAP_NAME, MANUFACTURE_NAME, BID_PRICE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_MEDICINE_DIC
+    where PRODUCT_ID = #{PRODUCT_ID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_SERVICE_MEDICINE_DIC
+    where PRODUCT_ID = #{PRODUCT_ID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="PRODUCT_ID" keyProperty="PRODUCT_ID" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedicineDic" useGeneratedKeys="true">
+    insert into TB_SERVICE_MEDICINE_DIC (NAME_CHN, PRODUCT_NAME, TRADE_NAME, 
+      DOSAGE_FORM_NAME, SPEC, STAND_RATE, 
+      SPEC_UNIT, WRAP_NAME, MANUFACTURE_NAME, 
+      BID_PRICE)
+    values (#{NAME_CHN,jdbcType=VARCHAR}, #{PRODUCT_NAME,jdbcType=VARCHAR}, #{TRADE_NAME,jdbcType=VARCHAR}, 
+      #{DOSAGE_FORM_NAME,jdbcType=VARCHAR}, #{SPEC,jdbcType=VARCHAR}, #{STAND_RATE,jdbcType=VARCHAR}, 
+      #{SPEC_UNIT,jdbcType=VARCHAR}, #{WRAP_NAME,jdbcType=VARCHAR}, #{MANUFACTURE_NAME,jdbcType=VARCHAR}, 
+      #{BID_PRICE,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="PRODUCT_ID" keyProperty="PRODUCT_ID" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedicineDic" useGeneratedKeys="true">
+    insert into TB_SERVICE_MEDICINE_DIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="NAME_CHN != null">
+        NAME_CHN,
+      </if>
+      <if test="PRODUCT_NAME != null">
+        PRODUCT_NAME,
+      </if>
+      <if test="TRADE_NAME != null">
+        TRADE_NAME,
+      </if>
+      <if test="DOSAGE_FORM_NAME != null">
+        DOSAGE_FORM_NAME,
+      </if>
+      <if test="SPEC != null">
+        SPEC,
+      </if>
+      <if test="STAND_RATE != null">
+        STAND_RATE,
+      </if>
+      <if test="SPEC_UNIT != null">
+        SPEC_UNIT,
+      </if>
+      <if test="WRAP_NAME != null">
+        WRAP_NAME,
+      </if>
+      <if test="MANUFACTURE_NAME != null">
+        MANUFACTURE_NAME,
+      </if>
+      <if test="BID_PRICE != null">
+        BID_PRICE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="NAME_CHN != null">
+        #{NAME_CHN,jdbcType=VARCHAR},
+      </if>
+      <if test="PRODUCT_NAME != null">
+        #{PRODUCT_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="TRADE_NAME != null">
+        #{TRADE_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="DOSAGE_FORM_NAME != null">
+        #{DOSAGE_FORM_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SPEC != null">
+        #{SPEC,jdbcType=VARCHAR},
+      </if>
+      <if test="STAND_RATE != null">
+        #{STAND_RATE,jdbcType=VARCHAR},
+      </if>
+      <if test="SPEC_UNIT != null">
+        #{SPEC_UNIT,jdbcType=VARCHAR},
+      </if>
+      <if test="WRAP_NAME != null">
+        #{WRAP_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="MANUFACTURE_NAME != null">
+        #{MANUFACTURE_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="BID_PRICE != null">
+        #{BID_PRICE,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedicineDic">
+    update TB_SERVICE_MEDICINE_DIC
+    <set>
+      <if test="NAME_CHN != null">
+        NAME_CHN = #{NAME_CHN,jdbcType=VARCHAR},
+      </if>
+      <if test="PRODUCT_NAME != null">
+        PRODUCT_NAME = #{PRODUCT_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="TRADE_NAME != null">
+        TRADE_NAME = #{TRADE_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="DOSAGE_FORM_NAME != null">
+        DOSAGE_FORM_NAME = #{DOSAGE_FORM_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SPEC != null">
+        SPEC = #{SPEC,jdbcType=VARCHAR},
+      </if>
+      <if test="STAND_RATE != null">
+        STAND_RATE = #{STAND_RATE,jdbcType=VARCHAR},
+      </if>
+      <if test="SPEC_UNIT != null">
+        SPEC_UNIT = #{SPEC_UNIT,jdbcType=VARCHAR},
+      </if>
+      <if test="WRAP_NAME != null">
+        WRAP_NAME = #{WRAP_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="MANUFACTURE_NAME != null">
+        MANUFACTURE_NAME = #{MANUFACTURE_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="BID_PRICE != null">
+        BID_PRICE = #{BID_PRICE,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where PRODUCT_ID = #{PRODUCT_ID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceMedicineDic">
+    update TB_SERVICE_MEDICINE_DIC
+    set NAME_CHN = #{NAME_CHN,jdbcType=VARCHAR},
+      PRODUCT_NAME = #{PRODUCT_NAME,jdbcType=VARCHAR},
+      TRADE_NAME = #{TRADE_NAME,jdbcType=VARCHAR},
+      DOSAGE_FORM_NAME = #{DOSAGE_FORM_NAME,jdbcType=VARCHAR},
+      SPEC = #{SPEC,jdbcType=VARCHAR},
+      STAND_RATE = #{STAND_RATE,jdbcType=VARCHAR},
+      SPEC_UNIT = #{SPEC_UNIT,jdbcType=VARCHAR},
+      WRAP_NAME = #{WRAP_NAME,jdbcType=VARCHAR},
+      MANUFACTURE_NAME = #{MANUFACTURE_NAME,jdbcType=VARCHAR},
+      BID_PRICE = #{BID_PRICE,jdbcType=DECIMAL}
+    where PRODUCT_ID = #{PRODUCT_ID,jdbcType=VARCHAR}
+  </update>
+</mapper>

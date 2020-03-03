@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServiceHealthyStatisticMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServiceHealthyStatistic">
+    <id column="INDEXNO" jdbcType="VARCHAR" property="INDEXNO" />
+    <result column="KFSL" jdbcType="DECIMAL" property="KFSL" />
+    <result column="KFSJD" jdbcType="VARCHAR" property="KFSJD" />
+    <result column="ZZTYCS" jdbcType="DECIMAL" property="ZZTYCS" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    INDEXNO, KFSL, KFSJD, ZZTYCS, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_HEALTHY_STATISTIC
+    where INDEXNO = #{INDEXNO,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_SERVICE_HEALTHY_STATISTIC
+    where INDEXNO = #{INDEXNO,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="INDEXNO" keyProperty="INDEXNO" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHealthyStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_HEALTHY_STATISTIC (KFSL, KFSJD, ZZTYCS, 
+      UPDATETIME, YL1, YL2
+      )
+    values (#{KFSL,jdbcType=DECIMAL}, #{KFSJD,jdbcType=VARCHAR}, #{ZZTYCS,jdbcType=DECIMAL}, 
+      #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="INDEXNO" keyProperty="INDEXNO" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHealthyStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_HEALTHY_STATISTIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="KFSL != null">
+        KFSL,
+      </if>
+      <if test="KFSJD != null">
+        KFSJD,
+      </if>
+      <if test="ZZTYCS != null">
+        ZZTYCS,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="KFSL != null">
+        #{KFSL,jdbcType=DECIMAL},
+      </if>
+      <if test="KFSJD != null">
+        #{KFSJD,jdbcType=VARCHAR},
+      </if>
+      <if test="ZZTYCS != null">
+        #{ZZTYCS,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHealthyStatistic">
+    update TB_SERVICE_HEALTHY_STATISTIC
+    <set>
+      <if test="KFSL != null">
+        KFSL = #{KFSL,jdbcType=DECIMAL},
+      </if>
+      <if test="KFSJD != null">
+        KFSJD = #{KFSJD,jdbcType=VARCHAR},
+      </if>
+      <if test="ZZTYCS != null">
+        ZZTYCS = #{ZZTYCS,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where INDEXNO = #{INDEXNO,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHealthyStatistic">
+    update TB_SERVICE_HEALTHY_STATISTIC
+    set KFSL = #{KFSL,jdbcType=DECIMAL},
+      KFSJD = #{KFSJD,jdbcType=VARCHAR},
+      ZZTYCS = #{ZZTYCS,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where INDEXNO = #{INDEXNO,jdbcType=VARCHAR}
+  </update>
+</mapper>

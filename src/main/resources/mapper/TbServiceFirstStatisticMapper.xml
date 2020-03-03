@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServiceFirstStatisticMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServiceFirstStatistic">
+    <id column="TJ_TIME" jdbcType="TIMESTAMP" property="TJ_TIME" />
+    <result column="ZCYYDM" jdbcType="VARCHAR" property="ZCYYDM" />
+    <result column="ZCYYMC" jdbcType="VARCHAR" property="ZCYYMC" />
+    <result column="ZRYYDM" jdbcType="VARCHAR" property="ZRYYDM" />
+    <result column="ZRYYMC" jdbcType="VARCHAR" property="ZRYYMC" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TJ_TIME, ZCYYDM, ZCYYMC, ZRYYDM, ZRYYMC, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.util.Date" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_FIRST_STATISTIC
+    where TJ_TIME = #{TJ_TIME,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.util.Date">
+    delete from TB_SERVICE_FIRST_STATISTIC
+    where TJ_TIME = #{TJ_TIME,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" keyColumn="TJ_TIME" keyProperty="TJ_TIME" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceFirstStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_FIRST_STATISTIC (ZCYYDM, ZCYYMC, ZRYYDM, 
+      ZRYYMC, UPDATETIME, YL1, 
+      YL2)
+    values (#{ZCYYDM,jdbcType=VARCHAR}, #{ZCYYMC,jdbcType=VARCHAR}, #{ZRYYDM,jdbcType=VARCHAR}, 
+      #{ZRYYMC,jdbcType=VARCHAR}, #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="TJ_TIME" keyProperty="TJ_TIME" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceFirstStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_FIRST_STATISTIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ZCYYDM != null">
+        ZCYYDM,
+      </if>
+      <if test="ZCYYMC != null">
+        ZCYYMC,
+      </if>
+      <if test="ZRYYDM != null">
+        ZRYYDM,
+      </if>
+      <if test="ZRYYMC != null">
+        ZRYYMC,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ZCYYDM != null">
+        #{ZCYYDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZCYYMC != null">
+        #{ZCYYMC,jdbcType=VARCHAR},
+      </if>
+      <if test="ZRYYDM != null">
+        #{ZRYYDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZRYYMC != null">
+        #{ZRYYMC,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceFirstStatistic">
+    update TB_SERVICE_FIRST_STATISTIC
+    <set>
+      <if test="ZCYYDM != null">
+        ZCYYDM = #{ZCYYDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZCYYMC != null">
+        ZCYYMC = #{ZCYYMC,jdbcType=VARCHAR},
+      </if>
+      <if test="ZRYYDM != null">
+        ZRYYDM = #{ZRYYDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZRYYMC != null">
+        ZRYYMC = #{ZRYYMC,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TJ_TIME = #{TJ_TIME,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceFirstStatistic">
+    update TB_SERVICE_FIRST_STATISTIC
+    set ZCYYDM = #{ZCYYDM,jdbcType=VARCHAR},
+      ZCYYMC = #{ZCYYMC,jdbcType=VARCHAR},
+      ZRYYDM = #{ZRYYDM,jdbcType=VARCHAR},
+      ZRYYMC = #{ZRYYMC,jdbcType=VARCHAR},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where TJ_TIME = #{TJ_TIME,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbSpecificPeopleTjMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbSpecificPeopleTj">
+    <id column="YEAR" jdbcType="TIMESTAMP" property="YEAR" />
+    <result column="0-6ETSL" jdbcType="DECIMAL" property="0-6ETSL" />
+    <result column="YCFSL" jdbcType="DECIMAL" property="YCFSL" />
+    <result column="GXYBRSL" jdbcType="DECIMAL" property="GXYBRSL" />
+    <result column="TNBBRSL" jdbcType="DECIMAL" property="TNBBRSL" />
+    <result column="65SYSLNRSL" jdbcType="DECIMAL" property="65SYSLNRSL" />
+    <result column="MBHZSL" jdbcType="DECIMAL" property="MBHZSL" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    "YEAR", 0-6ETSL, YCFSL, GXYBRSL, TNBBRSL, 65SYSLNRSL, MBHZSL, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.util.Date" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SPECIFIC_PEOPLE_TJ
+    where "YEAR" = #{YEAR,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.util.Date">
+    delete from TB_SPECIFIC_PEOPLE_TJ
+    where "YEAR" = #{YEAR,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" keyColumn="YEAR" keyProperty="YEAR" parameterType="com.wonder.cp.portal.mybatis.po.TbSpecificPeopleTj" useGeneratedKeys="true">
+    insert into TB_SPECIFIC_PEOPLE_TJ (0-6ETSL, YCFSL, GXYBRSL, 
+      TNBBRSL, 65SYSLNRSL, MBHZSL, 
+      UPDATETIME, YL1, YL2
+      )
+    values (#{0-6ETSL,jdbcType=DECIMAL}, #{YCFSL,jdbcType=DECIMAL}, #{GXYBRSL,jdbcType=DECIMAL}, 
+      #{TNBBRSL,jdbcType=DECIMAL}, #{65SYSLNRSL,jdbcType=DECIMAL}, #{MBHZSL,jdbcType=DECIMAL}, 
+      #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="YEAR" keyProperty="YEAR" parameterType="com.wonder.cp.portal.mybatis.po.TbSpecificPeopleTj" useGeneratedKeys="true">
+    insert into TB_SPECIFIC_PEOPLE_TJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="0-6ETSL != null">
+        0-6ETSL,
+      </if>
+      <if test="YCFSL != null">
+        YCFSL,
+      </if>
+      <if test="GXYBRSL != null">
+        GXYBRSL,
+      </if>
+      <if test="TNBBRSL != null">
+        TNBBRSL,
+      </if>
+      <if test="65SYSLNRSL != null">
+        65SYSLNRSL,
+      </if>
+      <if test="MBHZSL != null">
+        MBHZSL,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="0-6ETSL != null">
+        #{0-6ETSL,jdbcType=DECIMAL},
+      </if>
+      <if test="YCFSL != null">
+        #{YCFSL,jdbcType=DECIMAL},
+      </if>
+      <if test="GXYBRSL != null">
+        #{GXYBRSL,jdbcType=DECIMAL},
+      </if>
+      <if test="TNBBRSL != null">
+        #{TNBBRSL,jdbcType=DECIMAL},
+      </if>
+      <if test="65SYSLNRSL != null">
+        #{65SYSLNRSL,jdbcType=DECIMAL},
+      </if>
+      <if test="MBHZSL != null">
+        #{MBHZSL,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbSpecificPeopleTj">
+    update TB_SPECIFIC_PEOPLE_TJ
+    <set>
+      <if test="0-6ETSL != null">
+        0-6ETSL = #{0-6ETSL,jdbcType=DECIMAL},
+      </if>
+      <if test="YCFSL != null">
+        YCFSL = #{YCFSL,jdbcType=DECIMAL},
+      </if>
+      <if test="GXYBRSL != null">
+        GXYBRSL = #{GXYBRSL,jdbcType=DECIMAL},
+      </if>
+      <if test="TNBBRSL != null">
+        TNBBRSL = #{TNBBRSL,jdbcType=DECIMAL},
+      </if>
+      <if test="65SYSLNRSL != null">
+        65SYSLNRSL = #{65SYSLNRSL,jdbcType=DECIMAL},
+      </if>
+      <if test="MBHZSL != null">
+        MBHZSL = #{MBHZSL,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where "YEAR" = #{YEAR,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbSpecificPeopleTj">
+    update TB_SPECIFIC_PEOPLE_TJ
+    set 0-6ETSL = #{0-6ETSL,jdbcType=DECIMAL},
+      YCFSL = #{YCFSL,jdbcType=DECIMAL},
+      GXYBRSL = #{GXYBRSL,jdbcType=DECIMAL},
+      TNBBRSL = #{TNBBRSL,jdbcType=DECIMAL},
+      65SYSLNRSL = #{65SYSLNRSL,jdbcType=DECIMAL},
+      MBHZSL = #{MBHZSL,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where "YEAR" = #{YEAR,jdbcType=TIMESTAMP}
+  </update>
+</mapper>

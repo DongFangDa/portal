@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbAcquisitionExtractRecordMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractRecord">
+    <id column="YLJGDM" jdbcType="VARCHAR" property="YLJGDM" />
+    <id column="TABLENAME" jdbcType="VARCHAR" property="TABLENAME" />
+    <id column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <id column="DATEYMD" jdbcType="VARCHAR" property="DATEYMD" />
+    <result column="YLJGMC" jdbcType="VARCHAR" property="YLJGMC" />
+    <result column="OPERATIONREASON" jdbcType="VARCHAR" property="OPERATIONREASON" />
+    <result column="GETCOUNT" jdbcType="VARCHAR" property="GETCOUNT" />
+    <result column="ISSUCCESSFUL" jdbcType="DECIMAL" property="ISSUCCESSFUL" />
+    <result column="FAILREASON" jdbcType="VARCHAR" property="FAILREASON" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YLJGDM, TABLENAME, UPDATETIME, DATEYMD, YLJGMC, OPERATIONREASON, GETCOUNT, ISSUCCESSFUL, 
+    FAILREASON, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractRecordKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_ACQUISITION_EXTRACT_RECORD
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TABLENAME = #{TABLENAME,jdbcType=VARCHAR}
+      and UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP}
+      and DATEYMD = #{DATEYMD,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractRecordKey">
+    delete from TB_ACQUISITION_EXTRACT_RECORD
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TABLENAME = #{TABLENAME,jdbcType=VARCHAR}
+      and UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP}
+      and DATEYMD = #{DATEYMD,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="YLJGDM" keyProperty="YLJGDM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractRecord" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_EXTRACT_RECORD (TABLENAME, UPDATETIME, DATEYMD, 
+      YLJGMC, OPERATIONREASON, GETCOUNT, 
+      ISSUCCESSFUL, FAILREASON, YL1, 
+      YL2)
+    values (#{TABLENAME,jdbcType=VARCHAR}, #{UPDATETIME,jdbcType=TIMESTAMP}, #{DATEYMD,jdbcType=VARCHAR}, 
+      #{YLJGMC,jdbcType=VARCHAR}, #{OPERATIONREASON,jdbcType=VARCHAR}, #{GETCOUNT,jdbcType=VARCHAR}, 
+      #{ISSUCCESSFUL,jdbcType=DECIMAL}, #{FAILREASON,jdbcType=VARCHAR}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="YLJGDM" keyProperty="YLJGDM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractRecord" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_EXTRACT_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TABLENAME != null">
+        TABLENAME,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="DATEYMD != null">
+        DATEYMD,
+      </if>
+      <if test="YLJGMC != null">
+        YLJGMC,
+      </if>
+      <if test="OPERATIONREASON != null">
+        OPERATIONREASON,
+      </if>
+      <if test="GETCOUNT != null">
+        GETCOUNT,
+      </if>
+      <if test="ISSUCCESSFUL != null">
+        ISSUCCESSFUL,
+      </if>
+      <if test="FAILREASON != null">
+        FAILREASON,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TABLENAME != null">
+        #{TABLENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="DATEYMD != null">
+        #{DATEYMD,jdbcType=VARCHAR},
+      </if>
+      <if test="YLJGMC != null">
+        #{YLJGMC,jdbcType=VARCHAR},
+      </if>
+      <if test="OPERATIONREASON != null">
+        #{OPERATIONREASON,jdbcType=VARCHAR},
+      </if>
+      <if test="GETCOUNT != null">
+        #{GETCOUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="ISSUCCESSFUL != null">
+        #{ISSUCCESSFUL,jdbcType=DECIMAL},
+      </if>
+      <if test="FAILREASON != null">
+        #{FAILREASON,jdbcType=VARCHAR},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractRecord">
+    update TB_ACQUISITION_EXTRACT_RECORD
+    <set>
+      <if test="YLJGMC != null">
+        YLJGMC = #{YLJGMC,jdbcType=VARCHAR},
+      </if>
+      <if test="OPERATIONREASON != null">
+        OPERATIONREASON = #{OPERATIONREASON,jdbcType=VARCHAR},
+      </if>
+      <if test="GETCOUNT != null">
+        GETCOUNT = #{GETCOUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="ISSUCCESSFUL != null">
+        ISSUCCESSFUL = #{ISSUCCESSFUL,jdbcType=DECIMAL},
+      </if>
+      <if test="FAILREASON != null">
+        FAILREASON = #{FAILREASON,jdbcType=VARCHAR},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TABLENAME = #{TABLENAME,jdbcType=VARCHAR}
+      and UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP}
+      and DATEYMD = #{DATEYMD,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractRecord">
+    update TB_ACQUISITION_EXTRACT_RECORD
+    set YLJGMC = #{YLJGMC,jdbcType=VARCHAR},
+      OPERATIONREASON = #{OPERATIONREASON,jdbcType=VARCHAR},
+      GETCOUNT = #{GETCOUNT,jdbcType=VARCHAR},
+      ISSUCCESSFUL = #{ISSUCCESSFUL,jdbcType=DECIMAL},
+      FAILREASON = #{FAILREASON,jdbcType=VARCHAR},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TABLENAME = #{TABLENAME,jdbcType=VARCHAR}
+      and UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP}
+      and DATEYMD = #{DATEYMD,jdbcType=VARCHAR}
+  </update>
+</mapper>

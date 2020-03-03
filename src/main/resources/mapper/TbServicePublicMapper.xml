@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServicePublicMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServicePublic">
+    <id column="DATEYM" jdbcType="VARCHAR" property="DATEYM" />
+    <id column="JGBM" jdbcType="VARCHAR" property="JGBM" />
+    <result column="GWXTZCS" jdbcType="DECIMAL" property="GWXTZCS" />
+    <result column="MBBK" jdbcType="DECIMAL" property="MBBK" />
+    <result column="CRBBK" jdbcType="DECIMAL" property="CRBBK" />
+    <result column="SWBK" jdbcType="DECIMAL" property="SWBK" />
+    <result column="XTSF" jdbcType="DECIMAL" property="XTSF" />
+    <result column="DADYCS" jdbcType="DECIMAL" property="DADYCS" />
+    <result column="SJ" jdbcType="TIMESTAMP" property="SJ" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+    <result column="JGMC" jdbcType="VARCHAR" property="JGMC" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DATEYM, JGBM, GWXTZCS, MBBK, CRBBK, SWBK, XTSF, DADYCS, SJ, YL1, YL2, JGMC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePublicKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_PUBLIC
+    where DATEYM = #{DATEYM,jdbcType=VARCHAR}
+      and JGBM = #{JGBM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePublicKey">
+    delete from TB_SERVICE_PUBLIC
+    where DATEYM = #{DATEYM,jdbcType=VARCHAR}
+      and JGBM = #{JGBM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="JGBM" keyProperty="JGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePublic" useGeneratedKeys="true">
+    insert into TB_SERVICE_PUBLIC (DATEYM, GWXTZCS, MBBK, 
+      CRBBK, SWBK, XTSF, 
+      DADYCS, SJ, YL1, 
+      YL2, JGMC)
+    values (#{DATEYM,jdbcType=VARCHAR}, #{GWXTZCS,jdbcType=DECIMAL}, #{MBBK,jdbcType=DECIMAL}, 
+      #{CRBBK,jdbcType=DECIMAL}, #{SWBK,jdbcType=DECIMAL}, #{XTSF,jdbcType=DECIMAL}, 
+      #{DADYCS,jdbcType=DECIMAL}, #{SJ,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR}, #{JGMC,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="JGBM" keyProperty="JGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePublic" useGeneratedKeys="true">
+    insert into TB_SERVICE_PUBLIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="DATEYM != null">
+        DATEYM,
+      </if>
+      <if test="GWXTZCS != null">
+        GWXTZCS,
+      </if>
+      <if test="MBBK != null">
+        MBBK,
+      </if>
+      <if test="CRBBK != null">
+        CRBBK,
+      </if>
+      <if test="SWBK != null">
+        SWBK,
+      </if>
+      <if test="XTSF != null">
+        XTSF,
+      </if>
+      <if test="DADYCS != null">
+        DADYCS,
+      </if>
+      <if test="SJ != null">
+        SJ,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+      <if test="JGMC != null">
+        JGMC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="DATEYM != null">
+        #{DATEYM,jdbcType=VARCHAR},
+      </if>
+      <if test="GWXTZCS != null">
+        #{GWXTZCS,jdbcType=DECIMAL},
+      </if>
+      <if test="MBBK != null">
+        #{MBBK,jdbcType=DECIMAL},
+      </if>
+      <if test="CRBBK != null">
+        #{CRBBK,jdbcType=DECIMAL},
+      </if>
+      <if test="SWBK != null">
+        #{SWBK,jdbcType=DECIMAL},
+      </if>
+      <if test="XTSF != null">
+        #{XTSF,jdbcType=DECIMAL},
+      </if>
+      <if test="DADYCS != null">
+        #{DADYCS,jdbcType=DECIMAL},
+      </if>
+      <if test="SJ != null">
+        #{SJ,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+      <if test="JGMC != null">
+        #{JGMC,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePublic">
+    update TB_SERVICE_PUBLIC
+    <set>
+      <if test="GWXTZCS != null">
+        GWXTZCS = #{GWXTZCS,jdbcType=DECIMAL},
+      </if>
+      <if test="MBBK != null">
+        MBBK = #{MBBK,jdbcType=DECIMAL},
+      </if>
+      <if test="CRBBK != null">
+        CRBBK = #{CRBBK,jdbcType=DECIMAL},
+      </if>
+      <if test="SWBK != null">
+        SWBK = #{SWBK,jdbcType=DECIMAL},
+      </if>
+      <if test="XTSF != null">
+        XTSF = #{XTSF,jdbcType=DECIMAL},
+      </if>
+      <if test="DADYCS != null">
+        DADYCS = #{DADYCS,jdbcType=DECIMAL},
+      </if>
+      <if test="SJ != null">
+        SJ = #{SJ,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+      <if test="JGMC != null">
+        JGMC = #{JGMC,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DATEYM = #{DATEYM,jdbcType=VARCHAR}
+      and JGBM = #{JGBM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePublic">
+    update TB_SERVICE_PUBLIC
+    set GWXTZCS = #{GWXTZCS,jdbcType=DECIMAL},
+      MBBK = #{MBBK,jdbcType=DECIMAL},
+      CRBBK = #{CRBBK,jdbcType=DECIMAL},
+      SWBK = #{SWBK,jdbcType=DECIMAL},
+      XTSF = #{XTSF,jdbcType=DECIMAL},
+      DADYCS = #{DADYCS,jdbcType=DECIMAL},
+      SJ = #{SJ,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR},
+      JGMC = #{JGMC,jdbcType=VARCHAR}
+    where DATEYM = #{DATEYM,jdbcType=VARCHAR}
+      and JGBM = #{JGBM,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbHospitalResourceBedMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbHospitalResourceBed">
+    <id column="YYBM" jdbcType="VARCHAR" property="YYBM" />
+    <id column="KSBM" jdbcType="VARCHAR" property="KSBM" />
+    <id column="KSMC" jdbcType="VARCHAR" property="KSMC" />
+    <result column="SSKS" jdbcType="DECIMAL" property="SSKS" />
+    <result column="CWSM" jdbcType="DECIMAL" property="CWSM" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YYBM, KSBM, KSMC, SSKS, CWSM, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHospitalResourceBedKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_HOSPITAL_RESOURCE_BED
+    where YYBM = #{YYBM,jdbcType=VARCHAR}
+      and KSBM = #{KSBM,jdbcType=VARCHAR}
+      and KSMC = #{KSMC,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHospitalResourceBedKey">
+    delete from TB_HOSPITAL_RESOURCE_BED
+    where YYBM = #{YYBM,jdbcType=VARCHAR}
+      and KSBM = #{KSBM,jdbcType=VARCHAR}
+      and KSMC = #{KSMC,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="YYBM" keyProperty="YYBM" parameterType="com.wonder.cp.portal.mybatis.po.TbHospitalResourceBed" useGeneratedKeys="true">
+    insert into TB_HOSPITAL_RESOURCE_BED (KSBM, KSMC, SSKS, 
+      CWSM, YL1, YL2)
+    values (#{KSBM,jdbcType=VARCHAR}, #{KSMC,jdbcType=VARCHAR}, #{SSKS,jdbcType=DECIMAL}, 
+      #{CWSM,jdbcType=DECIMAL}, #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="YYBM" keyProperty="YYBM" parameterType="com.wonder.cp.portal.mybatis.po.TbHospitalResourceBed" useGeneratedKeys="true">
+    insert into TB_HOSPITAL_RESOURCE_BED
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="KSBM != null">
+        KSBM,
+      </if>
+      <if test="KSMC != null">
+        KSMC,
+      </if>
+      <if test="SSKS != null">
+        SSKS,
+      </if>
+      <if test="CWSM != null">
+        CWSM,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="KSBM != null">
+        #{KSBM,jdbcType=VARCHAR},
+      </if>
+      <if test="KSMC != null">
+        #{KSMC,jdbcType=VARCHAR},
+      </if>
+      <if test="SSKS != null">
+        #{SSKS,jdbcType=DECIMAL},
+      </if>
+      <if test="CWSM != null">
+        #{CWSM,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbHospitalResourceBed">
+    update TB_HOSPITAL_RESOURCE_BED
+    <set>
+      <if test="SSKS != null">
+        SSKS = #{SSKS,jdbcType=DECIMAL},
+      </if>
+      <if test="CWSM != null">
+        CWSM = #{CWSM,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YYBM = #{YYBM,jdbcType=VARCHAR}
+      and KSBM = #{KSBM,jdbcType=VARCHAR}
+      and KSMC = #{KSMC,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHospitalResourceBed">
+    update TB_HOSPITAL_RESOURCE_BED
+    set SSKS = #{SSKS,jdbcType=DECIMAL},
+      CWSM = #{CWSM,jdbcType=DECIMAL},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where YYBM = #{YYBM,jdbcType=VARCHAR}
+      and KSBM = #{KSBM,jdbcType=VARCHAR}
+      and KSMC = #{KSMC,jdbcType=VARCHAR}
+  </update>
+</mapper>

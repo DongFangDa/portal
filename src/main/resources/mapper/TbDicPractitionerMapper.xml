@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbDicPractitionerMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbDicPractitioner">
+    <id column="GH" jdbcType="VARCHAR" property="GH" />
+    <id column="YLJGDM" jdbcType="VARCHAR" property="YLJGDM" />
+    <result column="ZCM" jdbcType="VARCHAR" property="ZCM" />
+    <result column="XM" jdbcType="VARCHAR" property="XM" />
+    <result column="SFZH" jdbcType="VARCHAR" property="SFZH" />
+    <result column="SSKS" jdbcType="VARCHAR" property="SSKS" />
+    <result column="ZWDM" jdbcType="VARCHAR" property="ZWDM" />
+    <result column="ZHIW" jdbcType="VARCHAR" property="ZHIW" />
+    <result column="ZCDM" jdbcType="VARCHAR" property="ZCDM" />
+    <result column="ZHIC" jdbcType="VARCHAR" property="ZHIC" />
+    <result column="CSRQ" jdbcType="VARCHAR" property="CSRQ" />
+    <result column="LB" jdbcType="VARCHAR" property="LB" />
+    <result column="RYJB" jdbcType="VARCHAR" property="RYJB" />
+    <result column="YSZC" jdbcType="VARCHAR" property="YSZC" />
+    <result column="ZYZSB" jdbcType="VARCHAR" property="ZYZSB" />
+    <result column="ZHUANY" jdbcType="VARCHAR" property="ZHUANY" />
+    <result column="XGBZ" jdbcType="DECIMAL" property="XGBZ" />
+    <result column="GGSJ" jdbcType="TIMESTAMP" property="GGSJ" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    GH, YLJGDM, ZCM, XM, SFZH, SSKS, ZWDM, ZHIW, ZCDM, ZHIC, CSRQ, LB, RYJB, YSZC, ZYZSB, 
+    ZHUANY, XGBZ, GGSJ, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbDicPractitionerKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_DIC_PRACTITIONER
+    where GH = #{GH,jdbcType=VARCHAR}
+      and YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbDicPractitionerKey">
+    delete from TB_DIC_PRACTITIONER
+    where GH = #{GH,jdbcType=VARCHAR}
+      and YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="GH" keyProperty="GH" parameterType="com.wonder.cp.portal.mybatis.po.TbDicPractitioner" useGeneratedKeys="true">
+    insert into TB_DIC_PRACTITIONER (YLJGDM, ZCM, XM, 
+      SFZH, SSKS, ZWDM, ZHIW, 
+      ZCDM, ZHIC, CSRQ, LB, 
+      RYJB, YSZC, ZYZSB, 
+      ZHUANY, XGBZ, GGSJ, 
+      YL1, YL2)
+    values (#{YLJGDM,jdbcType=VARCHAR}, #{ZCM,jdbcType=VARCHAR}, #{XM,jdbcType=VARCHAR}, 
+      #{SFZH,jdbcType=VARCHAR}, #{SSKS,jdbcType=VARCHAR}, #{ZWDM,jdbcType=VARCHAR}, #{ZHIW,jdbcType=VARCHAR}, 
+      #{ZCDM,jdbcType=VARCHAR}, #{ZHIC,jdbcType=VARCHAR}, #{CSRQ,jdbcType=VARCHAR}, #{LB,jdbcType=VARCHAR}, 
+      #{RYJB,jdbcType=VARCHAR}, #{YSZC,jdbcType=VARCHAR}, #{ZYZSB,jdbcType=VARCHAR}, 
+      #{ZHUANY,jdbcType=VARCHAR}, #{XGBZ,jdbcType=DECIMAL}, #{GGSJ,jdbcType=TIMESTAMP}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="GH" keyProperty="GH" parameterType="com.wonder.cp.portal.mybatis.po.TbDicPractitioner" useGeneratedKeys="true">
+    insert into TB_DIC_PRACTITIONER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="YLJGDM != null">
+        YLJGDM,
+      </if>
+      <if test="ZCM != null">
+        ZCM,
+      </if>
+      <if test="XM != null">
+        XM,
+      </if>
+      <if test="SFZH != null">
+        SFZH,
+      </if>
+      <if test="SSKS != null">
+        SSKS,
+      </if>
+      <if test="ZWDM != null">
+        ZWDM,
+      </if>
+      <if test="ZHIW != null">
+        ZHIW,
+      </if>
+      <if test="ZCDM != null">
+        ZCDM,
+      </if>
+      <if test="ZHIC != null">
+        ZHIC,
+      </if>
+      <if test="CSRQ != null">
+        CSRQ,
+      </if>
+      <if test="LB != null">
+        LB,
+      </if>
+      <if test="RYJB != null">
+        RYJB,
+      </if>
+      <if test="YSZC != null">
+        YSZC,
+      </if>
+      <if test="ZYZSB != null">
+        ZYZSB,
+      </if>
+      <if test="ZHUANY != null">
+        ZHUANY,
+      </if>
+      <if test="XGBZ != null">
+        XGBZ,
+      </if>
+      <if test="GGSJ != null">
+        GGSJ,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="YLJGDM != null">
+        #{YLJGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZCM != null">
+        #{ZCM,jdbcType=VARCHAR},
+      </if>
+      <if test="XM != null">
+        #{XM,jdbcType=VARCHAR},
+      </if>
+      <if test="SFZH != null">
+        #{SFZH,jdbcType=VARCHAR},
+      </if>
+      <if test="SSKS != null">
+        #{SSKS,jdbcType=VARCHAR},
+      </if>
+      <if test="ZWDM != null">
+        #{ZWDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZHIW != null">
+        #{ZHIW,jdbcType=VARCHAR},
+      </if>
+      <if test="ZCDM != null">
+        #{ZCDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZHIC != null">
+        #{ZHIC,jdbcType=VARCHAR},
+      </if>
+      <if test="CSRQ != null">
+        #{CSRQ,jdbcType=VARCHAR},
+      </if>
+      <if test="LB != null">
+        #{LB,jdbcType=VARCHAR},
+      </if>
+      <if test="RYJB != null">
+        #{RYJB,jdbcType=VARCHAR},
+      </if>
+      <if test="YSZC != null">
+        #{YSZC,jdbcType=VARCHAR},
+      </if>
+      <if test="ZYZSB != null">
+        #{ZYZSB,jdbcType=VARCHAR},
+      </if>
+      <if test="ZHUANY != null">
+        #{ZHUANY,jdbcType=VARCHAR},
+      </if>
+      <if test="XGBZ != null">
+        #{XGBZ,jdbcType=DECIMAL},
+      </if>
+      <if test="GGSJ != null">
+        #{GGSJ,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbDicPractitioner">
+    update TB_DIC_PRACTITIONER
+    <set>
+      <if test="ZCM != null">
+        ZCM = #{ZCM,jdbcType=VARCHAR},
+      </if>
+      <if test="XM != null">
+        XM = #{XM,jdbcType=VARCHAR},
+      </if>
+      <if test="SFZH != null">
+        SFZH = #{SFZH,jdbcType=VARCHAR},
+      </if>
+      <if test="SSKS != null">
+        SSKS = #{SSKS,jdbcType=VARCHAR},
+      </if>
+      <if test="ZWDM != null">
+        ZWDM = #{ZWDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZHIW != null">
+        ZHIW = #{ZHIW,jdbcType=VARCHAR},
+      </if>
+      <if test="ZCDM != null">
+        ZCDM = #{ZCDM,jdbcType=VARCHAR},
+      </if>
+      <if test="ZHIC != null">
+        ZHIC = #{ZHIC,jdbcType=VARCHAR},
+      </if>
+      <if test="CSRQ != null">
+        CSRQ = #{CSRQ,jdbcType=VARCHAR},
+      </if>
+      <if test="LB != null">
+        LB = #{LB,jdbcType=VARCHAR},
+      </if>
+      <if test="RYJB != null">
+        RYJB = #{RYJB,jdbcType=VARCHAR},
+      </if>
+      <if test="YSZC != null">
+        YSZC = #{YSZC,jdbcType=VARCHAR},
+      </if>
+      <if test="ZYZSB != null">
+        ZYZSB = #{ZYZSB,jdbcType=VARCHAR},
+      </if>
+      <if test="ZHUANY != null">
+        ZHUANY = #{ZHUANY,jdbcType=VARCHAR},
+      </if>
+      <if test="XGBZ != null">
+        XGBZ = #{XGBZ,jdbcType=DECIMAL},
+      </if>
+      <if test="GGSJ != null">
+        GGSJ = #{GGSJ,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GH = #{GH,jdbcType=VARCHAR}
+      and YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbDicPractitioner">
+    update TB_DIC_PRACTITIONER
+    set ZCM = #{ZCM,jdbcType=VARCHAR},
+      XM = #{XM,jdbcType=VARCHAR},
+      SFZH = #{SFZH,jdbcType=VARCHAR},
+      SSKS = #{SSKS,jdbcType=VARCHAR},
+      ZWDM = #{ZWDM,jdbcType=VARCHAR},
+      ZHIW = #{ZHIW,jdbcType=VARCHAR},
+      ZCDM = #{ZCDM,jdbcType=VARCHAR},
+      ZHIC = #{ZHIC,jdbcType=VARCHAR},
+      CSRQ = #{CSRQ,jdbcType=VARCHAR},
+      LB = #{LB,jdbcType=VARCHAR},
+      RYJB = #{RYJB,jdbcType=VARCHAR},
+      YSZC = #{YSZC,jdbcType=VARCHAR},
+      ZYZSB = #{ZYZSB,jdbcType=VARCHAR},
+      ZHUANY = #{ZHUANY,jdbcType=VARCHAR},
+      XGBZ = #{XGBZ,jdbcType=DECIMAL},
+      GGSJ = #{GGSJ,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where GH = #{GH,jdbcType=VARCHAR}
+      and YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+  </update>
+</mapper>

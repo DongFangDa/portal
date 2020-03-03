@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServiceIndexIntegrationMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServiceIndexIntegration">
+    <id column="XH" jdbcType="VARCHAR" property="XH" />
+    <result column="GLLX" jdbcType="DECIMAL" property="GLLX" />
+    <result column="SJLY" jdbcType="DECIMAL" property="SJLY" />
+    <result column="SL" jdbcType="DECIMAL" property="SL" />
+    <result column="DATEYM" jdbcType="VARCHAR" property="DATEYM" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    XH, GLLX, SJLY, SL, DATEYM, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_INDEX_INTEGRATION
+    where XH = #{XH,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_SERVICE_INDEX_INTEGRATION
+    where XH = #{XH,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="XH" keyProperty="XH" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceIndexIntegration" useGeneratedKeys="true">
+    insert into TB_SERVICE_INDEX_INTEGRATION (GLLX, SJLY, SL, 
+      DATEYM, YL1, YL2)
+    values (#{GLLX,jdbcType=DECIMAL}, #{SJLY,jdbcType=DECIMAL}, #{SL,jdbcType=DECIMAL}, 
+      #{DATEYM,jdbcType=VARCHAR}, #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="XH" keyProperty="XH" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceIndexIntegration" useGeneratedKeys="true">
+    insert into TB_SERVICE_INDEX_INTEGRATION
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="GLLX != null">
+        GLLX,
+      </if>
+      <if test="SJLY != null">
+        SJLY,
+      </if>
+      <if test="SL != null">
+        SL,
+      </if>
+      <if test="DATEYM != null">
+        DATEYM,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="GLLX != null">
+        #{GLLX,jdbcType=DECIMAL},
+      </if>
+      <if test="SJLY != null">
+        #{SJLY,jdbcType=DECIMAL},
+      </if>
+      <if test="SL != null">
+        #{SL,jdbcType=DECIMAL},
+      </if>
+      <if test="DATEYM != null">
+        #{DATEYM,jdbcType=VARCHAR},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceIndexIntegration">
+    update TB_SERVICE_INDEX_INTEGRATION
+    <set>
+      <if test="GLLX != null">
+        GLLX = #{GLLX,jdbcType=DECIMAL},
+      </if>
+      <if test="SJLY != null">
+        SJLY = #{SJLY,jdbcType=DECIMAL},
+      </if>
+      <if test="SL != null">
+        SL = #{SL,jdbcType=DECIMAL},
+      </if>
+      <if test="DATEYM != null">
+        DATEYM = #{DATEYM,jdbcType=VARCHAR},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where XH = #{XH,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceIndexIntegration">
+    update TB_SERVICE_INDEX_INTEGRATION
+    set GLLX = #{GLLX,jdbcType=DECIMAL},
+      SJLY = #{SJLY,jdbcType=DECIMAL},
+      SL = #{SL,jdbcType=DECIMAL},
+      DATEYM = #{DATEYM,jdbcType=VARCHAR},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where XH = #{XH,jdbcType=VARCHAR}
+  </update>
+</mapper>

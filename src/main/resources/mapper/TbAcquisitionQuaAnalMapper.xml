@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbAcquisitionQuaAnalMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbAcquisitionQuaAnal">
+    <id column="YLJGDM" jdbcType="VARCHAR" property="YLJGDM" />
+    <id column="TABLECODE" jdbcType="VARCHAR" property="TABLECODE" />
+    <id column="DATEYM" jdbcType="VARCHAR" property="DATEYM" />
+    <result column="YLJGMC" jdbcType="VARCHAR" property="YLJGMC" />
+    <result column="PJZB" jdbcType="DECIMAL" property="PJZB" />
+    <result column="GRADE" jdbcType="DECIMAL" property="GRADE" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YLJGDM, TABLECODE, DATEYM, YLJGMC, PJZB, GRADE, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionQuaAnalKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_ACQUISITION_QUA_ANAL
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TABLECODE = #{TABLECODE,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionQuaAnalKey">
+    delete from TB_ACQUISITION_QUA_ANAL
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TABLECODE = #{TABLECODE,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="YLJGDM" keyProperty="YLJGDM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionQuaAnal" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_QUA_ANAL (TABLECODE, DATEYM, YLJGMC, 
+      PJZB, GRADE, UPDATETIME, 
+      YL1, YL2)
+    values (#{TABLECODE,jdbcType=VARCHAR}, #{DATEYM,jdbcType=VARCHAR}, #{YLJGMC,jdbcType=VARCHAR}, 
+      #{PJZB,jdbcType=DECIMAL}, #{GRADE,jdbcType=DECIMAL}, #{UPDATETIME,jdbcType=TIMESTAMP}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="YLJGDM" keyProperty="YLJGDM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionQuaAnal" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_QUA_ANAL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TABLECODE != null">
+        TABLECODE,
+      </if>
+      <if test="DATEYM != null">
+        DATEYM,
+      </if>
+      <if test="YLJGMC != null">
+        YLJGMC,
+      </if>
+      <if test="PJZB != null">
+        PJZB,
+      </if>
+      <if test="GRADE != null">
+        GRADE,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TABLECODE != null">
+        #{TABLECODE,jdbcType=VARCHAR},
+      </if>
+      <if test="DATEYM != null">
+        #{DATEYM,jdbcType=VARCHAR},
+      </if>
+      <if test="YLJGMC != null">
+        #{YLJGMC,jdbcType=VARCHAR},
+      </if>
+      <if test="PJZB != null">
+        #{PJZB,jdbcType=DECIMAL},
+      </if>
+      <if test="GRADE != null">
+        #{GRADE,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionQuaAnal">
+    update TB_ACQUISITION_QUA_ANAL
+    <set>
+      <if test="YLJGMC != null">
+        YLJGMC = #{YLJGMC,jdbcType=VARCHAR},
+      </if>
+      <if test="PJZB != null">
+        PJZB = #{PJZB,jdbcType=DECIMAL},
+      </if>
+      <if test="GRADE != null">
+        GRADE = #{GRADE,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TABLECODE = #{TABLECODE,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionQuaAnal">
+    update TB_ACQUISITION_QUA_ANAL
+    set YLJGMC = #{YLJGMC,jdbcType=VARCHAR},
+      PJZB = #{PJZB,jdbcType=DECIMAL},
+      GRADE = #{GRADE,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TABLECODE = #{TABLECODE,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </update>
+</mapper>

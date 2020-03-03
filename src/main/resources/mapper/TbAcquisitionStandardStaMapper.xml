@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbAcquisitionStandardStaMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbAcquisitionStandardSta">
+    <id column="BZDM" jdbcType="VARCHAR" property="BZDM" />
+    <result column="BZMC" jdbcType="VARCHAR" property="BZMC" />
+    <result column="SCSJ" jdbcType="VARCHAR" property="SCSJ" />
+    <result column="BZTYPE" jdbcType="DECIMAL" property="BZTYPE" />
+    <result column="INFOR_ITEM" jdbcType="DECIMAL" property="INFOR_ITEM" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BZDM, BZMC, SCSJ, BZTYPE, INFOR_ITEM, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_ACQUISITION_STANDARD_STA
+    where BZDM = #{BZDM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_ACQUISITION_STANDARD_STA
+    where BZDM = #{BZDM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="BZDM" keyProperty="BZDM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionStandardSta" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_STANDARD_STA (BZMC, SCSJ, BZTYPE, 
+      INFOR_ITEM, YL1, YL2
+      )
+    values (#{BZMC,jdbcType=VARCHAR}, #{SCSJ,jdbcType=VARCHAR}, #{BZTYPE,jdbcType=DECIMAL}, 
+      #{INFOR_ITEM,jdbcType=DECIMAL}, #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="BZDM" keyProperty="BZDM" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionStandardSta" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_STANDARD_STA
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="BZMC != null">
+        BZMC,
+      </if>
+      <if test="SCSJ != null">
+        SCSJ,
+      </if>
+      <if test="BZTYPE != null">
+        BZTYPE,
+      </if>
+      <if test="INFOR_ITEM != null">
+        INFOR_ITEM,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="BZMC != null">
+        #{BZMC,jdbcType=VARCHAR},
+      </if>
+      <if test="SCSJ != null">
+        #{SCSJ,jdbcType=VARCHAR},
+      </if>
+      <if test="BZTYPE != null">
+        #{BZTYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="INFOR_ITEM != null">
+        #{INFOR_ITEM,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionStandardSta">
+    update TB_ACQUISITION_STANDARD_STA
+    <set>
+      <if test="BZMC != null">
+        BZMC = #{BZMC,jdbcType=VARCHAR},
+      </if>
+      <if test="SCSJ != null">
+        SCSJ = #{SCSJ,jdbcType=VARCHAR},
+      </if>
+      <if test="BZTYPE != null">
+        BZTYPE = #{BZTYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="INFOR_ITEM != null">
+        INFOR_ITEM = #{INFOR_ITEM,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BZDM = #{BZDM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionStandardSta">
+    update TB_ACQUISITION_STANDARD_STA
+    set BZMC = #{BZMC,jdbcType=VARCHAR},
+      SCSJ = #{SCSJ,jdbcType=VARCHAR},
+      BZTYPE = #{BZTYPE,jdbcType=DECIMAL},
+      INFOR_ITEM = #{INFOR_ITEM,jdbcType=DECIMAL},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where BZDM = #{BZDM,jdbcType=VARCHAR}
+  </update>
+</mapper>

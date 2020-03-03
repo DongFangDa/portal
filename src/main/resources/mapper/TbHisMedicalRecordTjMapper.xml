@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbHisMedicalRecordTjMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTj">
+    <result column="YLJGBM" jdbcType="VARCHAR" property="YLJGBM" />
+    <result column="TJDATE" jdbcType="DECIMAL" property="TJDATE" />
+    <result column="JZSL" jdbcType="DECIMAL" property="JZSL" />
+    <result column="CFSL" jdbcType="DECIMAL" property="CFSL" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <insert id="insert" parameterType="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTj">
+    insert into TB_HIS_MEDICAL_RECORD_TJ (YLJGBM, TJDATE, JZSL, 
+      CFSL, UPDATETIME, YL1, 
+      YL2)
+    values (#{YLJGBM,jdbcType=VARCHAR}, #{TJDATE,jdbcType=DECIMAL}, #{JZSL,jdbcType=DECIMAL}, 
+      #{CFSL,jdbcType=DECIMAL}, #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTj">
+    insert into TB_HIS_MEDICAL_RECORD_TJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="YLJGBM != null">
+        YLJGBM,
+      </if>
+      <if test="TJDATE != null">
+        TJDATE,
+      </if>
+      <if test="JZSL != null">
+        JZSL,
+      </if>
+      <if test="CFSL != null">
+        CFSL,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="YLJGBM != null">
+        #{YLJGBM,jdbcType=VARCHAR},
+      </if>
+      <if test="TJDATE != null">
+        #{TJDATE,jdbcType=DECIMAL},
+      </if>
+      <if test="JZSL != null">
+        #{JZSL,jdbcType=DECIMAL},
+      </if>
+      <if test="CFSL != null">
+        #{CFSL,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

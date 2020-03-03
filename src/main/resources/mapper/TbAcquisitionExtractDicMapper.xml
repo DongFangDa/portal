@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbAcquisitionExtractDicMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractDic">
+    <id column="TB_ACQUISITION_EXTRACT_DIC_TABLECODE" jdbcType="VARCHAR" property="TABLECODE" />
+    <result column="TB_ACQUISITION_EXTRACT_DIC_TABLENAME" jdbcType="VARCHAR" property="TABLENAME" />
+    <result column="TB_ACQUISITION_EXTRACT_DIC_GETTYPE" jdbcType="DECIMAL" property="GETTYPE" />
+    <result column="TB_ACQUISITION_EXTRACT_DIC_ONLY_YLJGDM" jdbcType="VARCHAR" property="ONLY_YLJGDM" />
+    <result column="TB_ACQUISITION_EXTRACT_DIC_UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="TB_ACQUISITION_EXTRACT_DIC_YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="TB_ACQUISITION_EXTRACT_DIC_YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    TB_ACQUISITION_EXTRACT_DIC.TABLECODE as TB_ACQUISITION_EXTRACT_DIC_TABLECODE, TB_ACQUISITION_EXTRACT_DIC.TABLENAME as TB_ACQUISITION_EXTRACT_DIC_TABLENAME, 
+    TB_ACQUISITION_EXTRACT_DIC.GETTYPE as TB_ACQUISITION_EXTRACT_DIC_GETTYPE, TB_ACQUISITION_EXTRACT_DIC.ONLY_YLJGDM as TB_ACQUISITION_EXTRACT_DIC_ONLY_YLJGDM, 
+    TB_ACQUISITION_EXTRACT_DIC.UPDATETIME as TB_ACQUISITION_EXTRACT_DIC_UPDATETIME, TB_ACQUISITION_EXTRACT_DIC.YL1 as TB_ACQUISITION_EXTRACT_DIC_YL1, 
+    TB_ACQUISITION_EXTRACT_DIC.YL2 as TB_ACQUISITION_EXTRACT_DIC_YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_ACQUISITION_EXTRACT_DIC TB_ACQUISITION_EXTRACT_DIC
+    where TB_ACQUISITION_EXTRACT_DIC.TABLECODE = #{TABLECODE,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_ACQUISITION_EXTRACT_DIC
+    where TABLECODE = #{TABLECODE,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="TABLECODE" keyProperty="TABLECODE" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractDic" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_EXTRACT_DIC (TABLENAME, GETTYPE, ONLY_YLJGDM, 
+      UPDATETIME, YL1, YL2
+      )
+    values (#{TABLENAME,jdbcType=VARCHAR}, #{GETTYPE,jdbcType=DECIMAL}, #{ONLY_YLJGDM,jdbcType=VARCHAR}, 
+      #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="TABLECODE" keyProperty="TABLECODE" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractDic" useGeneratedKeys="true">
+    insert into TB_ACQUISITION_EXTRACT_DIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TABLENAME != null">
+        TABLENAME,
+      </if>
+      <if test="GETTYPE != null">
+        GETTYPE,
+      </if>
+      <if test="ONLY_YLJGDM != null">
+        ONLY_YLJGDM,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TABLENAME != null">
+        #{TABLENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="GETTYPE != null">
+        #{GETTYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="ONLY_YLJGDM != null">
+        #{ONLY_YLJGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractDic">
+    update TB_ACQUISITION_EXTRACT_DIC
+    <set>
+      <if test="TABLENAME != null">
+        TABLENAME = #{TABLENAME,jdbcType=VARCHAR},
+      </if>
+      <if test="GETTYPE != null">
+        GETTYPE = #{GETTYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="ONLY_YLJGDM != null">
+        ONLY_YLJGDM = #{ONLY_YLJGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where TABLECODE = #{TABLECODE,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbAcquisitionExtractDic">
+    update TB_ACQUISITION_EXTRACT_DIC
+    set TABLENAME = #{TABLENAME,jdbcType=VARCHAR},
+      GETTYPE = #{GETTYPE,jdbcType=DECIMAL},
+      ONLY_YLJGDM = #{ONLY_YLJGDM,jdbcType=VARCHAR},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where TABLECODE = #{TABLECODE,jdbcType=VARCHAR}
+  </update>
+</mapper>

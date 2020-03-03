@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServicePurchaseStatisticMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServicePurchaseStatistic">
+    <id column="ORDERID" jdbcType="VARCHAR" property="ORDERID" />
+    <result column="TYPE_COUNT" jdbcType="VARCHAR" property="TYPE_COUNT" />
+    <result column="AMOUNT" jdbcType="DECIMAL" property="AMOUNT" />
+    <result column="DATEYM" jdbcType="VARCHAR" property="DATEYM" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YLJGDM" jdbcType="VARCHAR" property="YLJGDM" />
+    <result column="YLJGMC" jdbcType="VARCHAR" property="YLJGMC" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ORDERID, TYPE_COUNT, AMOUNT, DATEYM, UPDATETIME, YLJGDM, YLJGMC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_PURCHASE_STATISTIC
+    where ORDERID = #{ORDERID,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_SERVICE_PURCHASE_STATISTIC
+    where ORDERID = #{ORDERID,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="ORDERID" keyProperty="ORDERID" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePurchaseStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_PURCHASE_STATISTIC (TYPE_COUNT, AMOUNT, DATEYM, 
+      UPDATETIME, YLJGDM, YLJGMC
+      )
+    values (#{TYPE_COUNT,jdbcType=VARCHAR}, #{AMOUNT,jdbcType=DECIMAL}, #{DATEYM,jdbcType=VARCHAR}, 
+      #{UPDATETIME,jdbcType=TIMESTAMP}, #{YLJGDM,jdbcType=VARCHAR}, #{YLJGMC,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="ORDERID" keyProperty="ORDERID" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePurchaseStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_PURCHASE_STATISTIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TYPE_COUNT != null">
+        TYPE_COUNT,
+      </if>
+      <if test="AMOUNT != null">
+        AMOUNT,
+      </if>
+      <if test="DATEYM != null">
+        DATEYM,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YLJGDM != null">
+        YLJGDM,
+      </if>
+      <if test="YLJGMC != null">
+        YLJGMC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TYPE_COUNT != null">
+        #{TYPE_COUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="AMOUNT != null">
+        #{AMOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="DATEYM != null">
+        #{DATEYM,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YLJGDM != null">
+        #{YLJGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="YLJGMC != null">
+        #{YLJGMC,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePurchaseStatistic">
+    update TB_SERVICE_PURCHASE_STATISTIC
+    <set>
+      <if test="TYPE_COUNT != null">
+        TYPE_COUNT = #{TYPE_COUNT,jdbcType=VARCHAR},
+      </if>
+      <if test="AMOUNT != null">
+        AMOUNT = #{AMOUNT,jdbcType=DECIMAL},
+      </if>
+      <if test="DATEYM != null">
+        DATEYM = #{DATEYM,jdbcType=VARCHAR},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YLJGDM != null">
+        YLJGDM = #{YLJGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="YLJGMC != null">
+        YLJGMC = #{YLJGMC,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ORDERID = #{ORDERID,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServicePurchaseStatistic">
+    update TB_SERVICE_PURCHASE_STATISTIC
+    set TYPE_COUNT = #{TYPE_COUNT,jdbcType=VARCHAR},
+      AMOUNT = #{AMOUNT,jdbcType=DECIMAL},
+      DATEYM = #{DATEYM,jdbcType=VARCHAR},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YLJGDM = #{YLJGDM,jdbcType=VARCHAR},
+      YLJGMC = #{YLJGMC,jdbcType=VARCHAR}
+    where ORDERID = #{ORDERID,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServerRegisterMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServerRegister">
+    <id column="BH" jdbcType="VARCHAR" property="BH" />
+    <result column="FZDM" jdbcType="VARCHAR" property="FZDM" />
+    <result column="FZMC" jdbcType="VARCHAR" property="FZMC" />
+    <result column="FWQ_TYPE" jdbcType="DECIMAL" property="FWQ_TYPE" />
+    <result column="FWQ_INTERNET_TYPE" jdbcType="DECIMAL" property="FWQ_INTERNET_TYPE" />
+    <result column="MC" jdbcType="VARCHAR" property="MC" />
+    <result column="CPU" jdbcType="VARCHAR" property="CPU" />
+    <result column="NC" jdbcType="DECIMAL" property="NC" />
+    <result column="XTP" jdbcType="VARCHAR" property="XTP" />
+    <result column="YYP" jdbcType="VARCHAR" property="YYP" />
+    <result column="CZXT" jdbcType="VARCHAR" property="CZXT" />
+    <result column="YHM" jdbcType="VARCHAR" property="YHM" />
+    <result column="NEW_PSW" jdbcType="VARCHAR" property="NEW_PSW" />
+    <result column="ROOT_PSW" jdbcType="VARCHAR" property="ROOT_PSW" />
+    <result column="NWIP" jdbcType="VARCHAR" property="NWIP" />
+    <result column="NWWG" jdbcType="VARCHAR" property="NWWG" />
+    <result column="ZWWWIP" jdbcType="VARCHAR" property="ZWWWIP" />
+    <result column="GXZLDZ" jdbcType="VARCHAR" property="GXZLDZ" />
+    <result column="SFXYJXHF" jdbcType="VARCHAR" property="SFXYJXHF" />
+    <result column="TGSJ" jdbcType="DECIMAL" property="TGSJ" />
+    <result column="SM" jdbcType="VARCHAR" property="SM" />
+    <result column="PZSM" jdbcType="VARCHAR" property="PZSM" />
+    <result column="FWQZSSJ" jdbcType="DECIMAL" property="FWQZSSJ" />
+    <result column="QYZT" jdbcType="DECIMAL" property="QYZT" />
+    <result column="UPDATETIME" jdbcType="DECIMAL" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    BH, FZDM, FZMC, FWQ_TYPE, FWQ_INTERNET_TYPE, MC, CPU, NC, XTP, YYP, CZXT, YHM, NEW_PSW, 
+    ROOT_PSW, NWIP, NWWG, ZWWWIP, GXZLDZ, SFXYJXHF, TGSJ, SM, PZSM, FWQZSSJ, QYZT, UPDATETIME, 
+    YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVER_REGISTER
+    where BH = #{BH,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from TB_SERVER_REGISTER
+    where BH = #{BH,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="BH" keyProperty="BH" parameterType="com.wonder.cp.portal.mybatis.po.TbServerRegister" useGeneratedKeys="true">
+    insert into TB_SERVER_REGISTER (FZDM, FZMC, FWQ_TYPE, 
+      FWQ_INTERNET_TYPE, MC, CPU, 
+      NC, XTP, YYP, CZXT, 
+      YHM, NEW_PSW, ROOT_PSW, 
+      NWIP, NWWG, ZWWWIP, 
+      GXZLDZ, SFXYJXHF, TGSJ, 
+      SM, PZSM, FWQZSSJ, 
+      QYZT, UPDATETIME, YL1, 
+      YL2)
+    values (#{FZDM,jdbcType=VARCHAR}, #{FZMC,jdbcType=VARCHAR}, #{FWQ_TYPE,jdbcType=DECIMAL}, 
+      #{FWQ_INTERNET_TYPE,jdbcType=DECIMAL}, #{MC,jdbcType=VARCHAR}, #{CPU,jdbcType=VARCHAR}, 
+      #{NC,jdbcType=DECIMAL}, #{XTP,jdbcType=VARCHAR}, #{YYP,jdbcType=VARCHAR}, #{CZXT,jdbcType=VARCHAR}, 
+      #{YHM,jdbcType=VARCHAR}, #{NEW_PSW,jdbcType=VARCHAR}, #{ROOT_PSW,jdbcType=VARCHAR}, 
+      #{NWIP,jdbcType=VARCHAR}, #{NWWG,jdbcType=VARCHAR}, #{ZWWWIP,jdbcType=VARCHAR}, 
+      #{GXZLDZ,jdbcType=VARCHAR}, #{SFXYJXHF,jdbcType=VARCHAR}, #{TGSJ,jdbcType=DECIMAL}, 
+      #{SM,jdbcType=VARCHAR}, #{PZSM,jdbcType=VARCHAR}, #{FWQZSSJ,jdbcType=DECIMAL}, 
+      #{QYZT,jdbcType=DECIMAL}, #{UPDATETIME,jdbcType=DECIMAL}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="BH" keyProperty="BH" parameterType="com.wonder.cp.portal.mybatis.po.TbServerRegister" useGeneratedKeys="true">
+    insert into TB_SERVER_REGISTER
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="FZDM != null">
+        FZDM,
+      </if>
+      <if test="FZMC != null">
+        FZMC,
+      </if>
+      <if test="FWQ_TYPE != null">
+        FWQ_TYPE,
+      </if>
+      <if test="FWQ_INTERNET_TYPE != null">
+        FWQ_INTERNET_TYPE,
+      </if>
+      <if test="MC != null">
+        MC,
+      </if>
+      <if test="CPU != null">
+        CPU,
+      </if>
+      <if test="NC != null">
+        NC,
+      </if>
+      <if test="XTP != null">
+        XTP,
+      </if>
+      <if test="YYP != null">
+        YYP,
+      </if>
+      <if test="CZXT != null">
+        CZXT,
+      </if>
+      <if test="YHM != null">
+        YHM,
+      </if>
+      <if test="NEW_PSW != null">
+        NEW_PSW,
+      </if>
+      <if test="ROOT_PSW != null">
+        ROOT_PSW,
+      </if>
+      <if test="NWIP != null">
+        NWIP,
+      </if>
+      <if test="NWWG != null">
+        NWWG,
+      </if>
+      <if test="ZWWWIP != null">
+        ZWWWIP,
+      </if>
+      <if test="GXZLDZ != null">
+        GXZLDZ,
+      </if>
+      <if test="SFXYJXHF != null">
+        SFXYJXHF,
+      </if>
+      <if test="TGSJ != null">
+        TGSJ,
+      </if>
+      <if test="SM != null">
+        SM,
+      </if>
+      <if test="PZSM != null">
+        PZSM,
+      </if>
+      <if test="FWQZSSJ != null">
+        FWQZSSJ,
+      </if>
+      <if test="QYZT != null">
+        QYZT,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="FZDM != null">
+        #{FZDM,jdbcType=VARCHAR},
+      </if>
+      <if test="FZMC != null">
+        #{FZMC,jdbcType=VARCHAR},
+      </if>
+      <if test="FWQ_TYPE != null">
+        #{FWQ_TYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="FWQ_INTERNET_TYPE != null">
+        #{FWQ_INTERNET_TYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="MC != null">
+        #{MC,jdbcType=VARCHAR},
+      </if>
+      <if test="CPU != null">
+        #{CPU,jdbcType=VARCHAR},
+      </if>
+      <if test="NC != null">
+        #{NC,jdbcType=DECIMAL},
+      </if>
+      <if test="XTP != null">
+        #{XTP,jdbcType=VARCHAR},
+      </if>
+      <if test="YYP != null">
+        #{YYP,jdbcType=VARCHAR},
+      </if>
+      <if test="CZXT != null">
+        #{CZXT,jdbcType=VARCHAR},
+      </if>
+      <if test="YHM != null">
+        #{YHM,jdbcType=VARCHAR},
+      </if>
+      <if test="NEW_PSW != null">
+        #{NEW_PSW,jdbcType=VARCHAR},
+      </if>
+      <if test="ROOT_PSW != null">
+        #{ROOT_PSW,jdbcType=VARCHAR},
+      </if>
+      <if test="NWIP != null">
+        #{NWIP,jdbcType=VARCHAR},
+      </if>
+      <if test="NWWG != null">
+        #{NWWG,jdbcType=VARCHAR},
+      </if>
+      <if test="ZWWWIP != null">
+        #{ZWWWIP,jdbcType=VARCHAR},
+      </if>
+      <if test="GXZLDZ != null">
+        #{GXZLDZ,jdbcType=VARCHAR},
+      </if>
+      <if test="SFXYJXHF != null">
+        #{SFXYJXHF,jdbcType=VARCHAR},
+      </if>
+      <if test="TGSJ != null">
+        #{TGSJ,jdbcType=DECIMAL},
+      </if>
+      <if test="SM != null">
+        #{SM,jdbcType=VARCHAR},
+      </if>
+      <if test="PZSM != null">
+        #{PZSM,jdbcType=VARCHAR},
+      </if>
+      <if test="FWQZSSJ != null">
+        #{FWQZSSJ,jdbcType=DECIMAL},
+      </if>
+      <if test="QYZT != null">
+        #{QYZT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServerRegister">
+    update TB_SERVER_REGISTER
+    <set>
+      <if test="FZDM != null">
+        FZDM = #{FZDM,jdbcType=VARCHAR},
+      </if>
+      <if test="FZMC != null">
+        FZMC = #{FZMC,jdbcType=VARCHAR},
+      </if>
+      <if test="FWQ_TYPE != null">
+        FWQ_TYPE = #{FWQ_TYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="FWQ_INTERNET_TYPE != null">
+        FWQ_INTERNET_TYPE = #{FWQ_INTERNET_TYPE,jdbcType=DECIMAL},
+      </if>
+      <if test="MC != null">
+        MC = #{MC,jdbcType=VARCHAR},
+      </if>
+      <if test="CPU != null">
+        CPU = #{CPU,jdbcType=VARCHAR},
+      </if>
+      <if test="NC != null">
+        NC = #{NC,jdbcType=DECIMAL},
+      </if>
+      <if test="XTP != null">
+        XTP = #{XTP,jdbcType=VARCHAR},
+      </if>
+      <if test="YYP != null">
+        YYP = #{YYP,jdbcType=VARCHAR},
+      </if>
+      <if test="CZXT != null">
+        CZXT = #{CZXT,jdbcType=VARCHAR},
+      </if>
+      <if test="YHM != null">
+        YHM = #{YHM,jdbcType=VARCHAR},
+      </if>
+      <if test="NEW_PSW != null">
+        NEW_PSW = #{NEW_PSW,jdbcType=VARCHAR},
+      </if>
+      <if test="ROOT_PSW != null">
+        ROOT_PSW = #{ROOT_PSW,jdbcType=VARCHAR},
+      </if>
+      <if test="NWIP != null">
+        NWIP = #{NWIP,jdbcType=VARCHAR},
+      </if>
+      <if test="NWWG != null">
+        NWWG = #{NWWG,jdbcType=VARCHAR},
+      </if>
+      <if test="ZWWWIP != null">
+        ZWWWIP = #{ZWWWIP,jdbcType=VARCHAR},
+      </if>
+      <if test="GXZLDZ != null">
+        GXZLDZ = #{GXZLDZ,jdbcType=VARCHAR},
+      </if>
+      <if test="SFXYJXHF != null">
+        SFXYJXHF = #{SFXYJXHF,jdbcType=VARCHAR},
+      </if>
+      <if test="TGSJ != null">
+        TGSJ = #{TGSJ,jdbcType=DECIMAL},
+      </if>
+      <if test="SM != null">
+        SM = #{SM,jdbcType=VARCHAR},
+      </if>
+      <if test="PZSM != null">
+        PZSM = #{PZSM,jdbcType=VARCHAR},
+      </if>
+      <if test="FWQZSSJ != null">
+        FWQZSSJ = #{FWQZSSJ,jdbcType=DECIMAL},
+      </if>
+      <if test="QYZT != null">
+        QYZT = #{QYZT,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=DECIMAL},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BH = #{BH,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServerRegister">
+    update TB_SERVER_REGISTER
+    set FZDM = #{FZDM,jdbcType=VARCHAR},
+      FZMC = #{FZMC,jdbcType=VARCHAR},
+      FWQ_TYPE = #{FWQ_TYPE,jdbcType=DECIMAL},
+      FWQ_INTERNET_TYPE = #{FWQ_INTERNET_TYPE,jdbcType=DECIMAL},
+      MC = #{MC,jdbcType=VARCHAR},
+      CPU = #{CPU,jdbcType=VARCHAR},
+      NC = #{NC,jdbcType=DECIMAL},
+      XTP = #{XTP,jdbcType=VARCHAR},
+      YYP = #{YYP,jdbcType=VARCHAR},
+      CZXT = #{CZXT,jdbcType=VARCHAR},
+      YHM = #{YHM,jdbcType=VARCHAR},
+      NEW_PSW = #{NEW_PSW,jdbcType=VARCHAR},
+      ROOT_PSW = #{ROOT_PSW,jdbcType=VARCHAR},
+      NWIP = #{NWIP,jdbcType=VARCHAR},
+      NWWG = #{NWWG,jdbcType=VARCHAR},
+      ZWWWIP = #{ZWWWIP,jdbcType=VARCHAR},
+      GXZLDZ = #{GXZLDZ,jdbcType=VARCHAR},
+      SFXYJXHF = #{SFXYJXHF,jdbcType=VARCHAR},
+      TGSJ = #{TGSJ,jdbcType=DECIMAL},
+      SM = #{SM,jdbcType=VARCHAR},
+      PZSM = #{PZSM,jdbcType=VARCHAR},
+      FWQZSSJ = #{FWQZSSJ,jdbcType=DECIMAL},
+      QYZT = #{QYZT,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=DECIMAL},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where BH = #{BH,jdbcType=VARCHAR}
+  </update>
+</mapper>

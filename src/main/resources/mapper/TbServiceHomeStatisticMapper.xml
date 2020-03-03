@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServiceHomeStatisticMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServiceHomeStatistic">
+    <id column="YLJG" jdbcType="VARCHAR" property="YLJG" />
+    <id column="DATEYM" jdbcType="VARCHAR" property="DATEYM" />
+    <result column="GWCZ" jdbcType="DECIMAL" property="GWCZ" />
+    <result column="CZRS" jdbcType="DECIMAL" property="CZRS" />
+    <result column="QQZRS" jdbcType="DECIMAL" property="QQZRS" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YLJG, DATEYM, GWCZ, CZRS, QQZRS, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHomeStatisticKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_HOME_STATISTIC
+    where YLJG = #{YLJG,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHomeStatisticKey">
+    delete from TB_SERVICE_HOME_STATISTIC
+    where YLJG = #{YLJG,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="YLJG" keyProperty="YLJG" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHomeStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_HOME_STATISTIC (DATEYM, GWCZ, CZRS, 
+      QQZRS, UPDATETIME, YL1, 
+      YL2)
+    values (#{DATEYM,jdbcType=VARCHAR}, #{GWCZ,jdbcType=DECIMAL}, #{CZRS,jdbcType=DECIMAL}, 
+      #{QQZRS,jdbcType=DECIMAL}, #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, 
+      #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="YLJG" keyProperty="YLJG" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHomeStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_HOME_STATISTIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="DATEYM != null">
+        DATEYM,
+      </if>
+      <if test="GWCZ != null">
+        GWCZ,
+      </if>
+      <if test="CZRS != null">
+        CZRS,
+      </if>
+      <if test="QQZRS != null">
+        QQZRS,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="DATEYM != null">
+        #{DATEYM,jdbcType=VARCHAR},
+      </if>
+      <if test="GWCZ != null">
+        #{GWCZ,jdbcType=DECIMAL},
+      </if>
+      <if test="CZRS != null">
+        #{CZRS,jdbcType=DECIMAL},
+      </if>
+      <if test="QQZRS != null">
+        #{QQZRS,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHomeStatistic">
+    update TB_SERVICE_HOME_STATISTIC
+    <set>
+      <if test="GWCZ != null">
+        GWCZ = #{GWCZ,jdbcType=DECIMAL},
+      </if>
+      <if test="CZRS != null">
+        CZRS = #{CZRS,jdbcType=DECIMAL},
+      </if>
+      <if test="QQZRS != null">
+        QQZRS = #{QQZRS,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YLJG = #{YLJG,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceHomeStatistic">
+    update TB_SERVICE_HOME_STATISTIC
+    set GWCZ = #{GWCZ,jdbcType=DECIMAL},
+      CZRS = #{CZRS,jdbcType=DECIMAL},
+      QQZRS = #{QQZRS,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where YLJG = #{YLJG,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=VARCHAR}
+  </update>
+</mapper>

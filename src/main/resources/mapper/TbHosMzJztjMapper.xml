@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbHosMzJztjMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbHosMzJztj">
+    <id column="JGBM" jdbcType="VARCHAR" property="JGBM" />
+    <id column="DATEYM" jdbcType="DECIMAL" property="DATEYM" />
+    <result column="MZRS" jdbcType="DECIMAL" property="MZRS" />
+    <result column="MZSR" jdbcType="DECIMAL" property="MZSR" />
+    <result column="RYRS" jdbcType="DECIMAL" property="RYRS" />
+    <result column="RYSR" jdbcType="DECIMAL" property="RYSR" />
+    <result column="TJSJ" jdbcType="TIMESTAMP" property="TJSJ" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    JGBM, DATEYM, MZRS, MZSR, RYRS, RYSR, TJSJ, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHosMzJztjKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_HOS_MZ_JZTJ
+    where JGBM = #{JGBM,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHosMzJztjKey">
+    delete from TB_HOS_MZ_JZTJ
+    where JGBM = #{JGBM,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" keyColumn="JGBM" keyProperty="JGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbHosMzJztj" useGeneratedKeys="true">
+    insert into TB_HOS_MZ_JZTJ (DATEYM, MZRS, MZSR, 
+      RYRS, RYSR, TJSJ, 
+      YL1, YL2)
+    values (#{DATEYM,jdbcType=DECIMAL}, #{MZRS,jdbcType=DECIMAL}, #{MZSR,jdbcType=DECIMAL}, 
+      #{RYRS,jdbcType=DECIMAL}, #{RYSR,jdbcType=DECIMAL}, #{TJSJ,jdbcType=TIMESTAMP}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="JGBM" keyProperty="JGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbHosMzJztj" useGeneratedKeys="true">
+    insert into TB_HOS_MZ_JZTJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="DATEYM != null">
+        DATEYM,
+      </if>
+      <if test="MZRS != null">
+        MZRS,
+      </if>
+      <if test="MZSR != null">
+        MZSR,
+      </if>
+      <if test="RYRS != null">
+        RYRS,
+      </if>
+      <if test="RYSR != null">
+        RYSR,
+      </if>
+      <if test="TJSJ != null">
+        TJSJ,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="DATEYM != null">
+        #{DATEYM,jdbcType=DECIMAL},
+      </if>
+      <if test="MZRS != null">
+        #{MZRS,jdbcType=DECIMAL},
+      </if>
+      <if test="MZSR != null">
+        #{MZSR,jdbcType=DECIMAL},
+      </if>
+      <if test="RYRS != null">
+        #{RYRS,jdbcType=DECIMAL},
+      </if>
+      <if test="RYSR != null">
+        #{RYSR,jdbcType=DECIMAL},
+      </if>
+      <if test="TJSJ != null">
+        #{TJSJ,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbHosMzJztj">
+    update TB_HOS_MZ_JZTJ
+    <set>
+      <if test="MZRS != null">
+        MZRS = #{MZRS,jdbcType=DECIMAL},
+      </if>
+      <if test="MZSR != null">
+        MZSR = #{MZSR,jdbcType=DECIMAL},
+      </if>
+      <if test="RYRS != null">
+        RYRS = #{RYRS,jdbcType=DECIMAL},
+      </if>
+      <if test="RYSR != null">
+        RYSR = #{RYSR,jdbcType=DECIMAL},
+      </if>
+      <if test="TJSJ != null">
+        TJSJ = #{TJSJ,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where JGBM = #{JGBM,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHosMzJztj">
+    update TB_HOS_MZ_JZTJ
+    set MZRS = #{MZRS,jdbcType=DECIMAL},
+      MZSR = #{MZSR,jdbcType=DECIMAL},
+      RYRS = #{RYRS,jdbcType=DECIMAL},
+      RYSR = #{RYSR,jdbcType=DECIMAL},
+      TJSJ = #{TJSJ,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where JGBM = #{JGBM,jdbcType=VARCHAR}
+      and DATEYM = #{DATEYM,jdbcType=DECIMAL}
+  </update>
+</mapper>

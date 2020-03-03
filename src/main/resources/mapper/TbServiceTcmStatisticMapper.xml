@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServiceTcmStatisticMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServiceTcmStatistic">
+    <id column="DATEYM" jdbcType="VARCHAR" property="DATEYM" />
+    <id column="JGDM" jdbcType="VARCHAR" property="JGDM" />
+    <result column="CSCS" jdbcType="DECIMAL" property="CSCS" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+    <result column="JGMC" jdbcType="VARCHAR" property="JGMC" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    DATEYM, JGDM, CSCS, UPDATETIME, YL1, YL2, JGMC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceTcmStatisticKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVICE_TCM_STATISTIC
+    where DATEYM = #{DATEYM,jdbcType=VARCHAR}
+      and JGDM = #{JGDM,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceTcmStatisticKey">
+    delete from TB_SERVICE_TCM_STATISTIC
+    where DATEYM = #{DATEYM,jdbcType=VARCHAR}
+      and JGDM = #{JGDM,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="DATEYM" keyProperty="DATEYM" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceTcmStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_TCM_STATISTIC (JGDM, CSCS, UPDATETIME, 
+      YL1, YL2, JGMC)
+    values (#{JGDM,jdbcType=VARCHAR}, #{CSCS,jdbcType=DECIMAL}, #{UPDATETIME,jdbcType=TIMESTAMP}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR}, #{JGMC,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="DATEYM" keyProperty="DATEYM" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceTcmStatistic" useGeneratedKeys="true">
+    insert into TB_SERVICE_TCM_STATISTIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="JGDM != null">
+        JGDM,
+      </if>
+      <if test="CSCS != null">
+        CSCS,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+      <if test="JGMC != null">
+        JGMC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="JGDM != null">
+        #{JGDM,jdbcType=VARCHAR},
+      </if>
+      <if test="CSCS != null">
+        #{CSCS,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+      <if test="JGMC != null">
+        #{JGMC,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceTcmStatistic">
+    update TB_SERVICE_TCM_STATISTIC
+    <set>
+      <if test="CSCS != null">
+        CSCS = #{CSCS,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+      <if test="JGMC != null">
+        JGMC = #{JGMC,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DATEYM = #{DATEYM,jdbcType=VARCHAR}
+      and JGDM = #{JGDM,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServiceTcmStatistic">
+    update TB_SERVICE_TCM_STATISTIC
+    set CSCS = #{CSCS,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR},
+      JGMC = #{JGMC,jdbcType=VARCHAR}
+    where DATEYM = #{DATEYM,jdbcType=VARCHAR}
+      and JGDM = #{JGDM,jdbcType=VARCHAR}
+  </update>
+</mapper>

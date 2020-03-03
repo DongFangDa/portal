@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbFourCentersTjMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbFourCentersTj">
+    <id column="YLJGDM" jdbcType="VARCHAR" property="YLJGDM" />
+    <id column="TJ_DATE" jdbcType="VARCHAR" property="TJ_DATE" />
+    <result column="XDZDSL" jdbcType="DECIMAL" property="XDZDSL" />
+    <result column="YXZDSL" jdbcType="DECIMAL" property="YXZDSL" />
+    <result column="LJSL" jdbcType="DECIMAL" property="LJSL" />
+    <result column="TJSL" jdbcType="DECIMAL" property="TJSL" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YLJGDM, TJ_DATE, XDZDSL, YXZDSL, LJSL, TJSL, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbFourCentersTjKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_FOUR_CENTERS_TJ
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TJ_DATE = #{TJ_DATE,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbFourCentersTjKey">
+    delete from TB_FOUR_CENTERS_TJ
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TJ_DATE = #{TJ_DATE,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="YLJGDM" keyProperty="YLJGDM" parameterType="com.wonder.cp.portal.mybatis.po.TbFourCentersTj" useGeneratedKeys="true">
+    insert into TB_FOUR_CENTERS_TJ (TJ_DATE, XDZDSL, YXZDSL, 
+      LJSL, TJSL, UPDATETIME, 
+      YL1, YL2)
+    values (#{TJ_DATE,jdbcType=VARCHAR}, #{XDZDSL,jdbcType=DECIMAL}, #{YXZDSL,jdbcType=DECIMAL}, 
+      #{LJSL,jdbcType=DECIMAL}, #{TJSL,jdbcType=DECIMAL}, #{UPDATETIME,jdbcType=TIMESTAMP}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="YLJGDM" keyProperty="YLJGDM" parameterType="com.wonder.cp.portal.mybatis.po.TbFourCentersTj" useGeneratedKeys="true">
+    insert into TB_FOUR_CENTERS_TJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TJ_DATE != null">
+        TJ_DATE,
+      </if>
+      <if test="XDZDSL != null">
+        XDZDSL,
+      </if>
+      <if test="YXZDSL != null">
+        YXZDSL,
+      </if>
+      <if test="LJSL != null">
+        LJSL,
+      </if>
+      <if test="TJSL != null">
+        TJSL,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TJ_DATE != null">
+        #{TJ_DATE,jdbcType=VARCHAR},
+      </if>
+      <if test="XDZDSL != null">
+        #{XDZDSL,jdbcType=DECIMAL},
+      </if>
+      <if test="YXZDSL != null">
+        #{YXZDSL,jdbcType=DECIMAL},
+      </if>
+      <if test="LJSL != null">
+        #{LJSL,jdbcType=DECIMAL},
+      </if>
+      <if test="TJSL != null">
+        #{TJSL,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbFourCentersTj">
+    update TB_FOUR_CENTERS_TJ
+    <set>
+      <if test="XDZDSL != null">
+        XDZDSL = #{XDZDSL,jdbcType=DECIMAL},
+      </if>
+      <if test="YXZDSL != null">
+        YXZDSL = #{YXZDSL,jdbcType=DECIMAL},
+      </if>
+      <if test="LJSL != null">
+        LJSL = #{LJSL,jdbcType=DECIMAL},
+      </if>
+      <if test="TJSL != null">
+        TJSL = #{TJSL,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TJ_DATE = #{TJ_DATE,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbFourCentersTj">
+    update TB_FOUR_CENTERS_TJ
+    set XDZDSL = #{XDZDSL,jdbcType=DECIMAL},
+      YXZDSL = #{YXZDSL,jdbcType=DECIMAL},
+      LJSL = #{LJSL,jdbcType=DECIMAL},
+      TJSL = #{TJSL,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where YLJGDM = #{YLJGDM,jdbcType=VARCHAR}
+      and TJ_DATE = #{TJ_DATE,jdbcType=VARCHAR}
+  </update>
+</mapper>

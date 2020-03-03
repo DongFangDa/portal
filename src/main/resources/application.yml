@@ -1,0 +1,72 @@
+server:
+  port: 80
+  servlet:
+    context-path: /
+spring:
+  profiles:
+    #默认使用开发环境
+    active: dev
+  datasource:
+    #如果存在多个数据源，监控的时候可以通过名字来区分开来
+    name: druidDatasorce
+    #使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    #扩展插件
+    #监控统计用的filter:stat 日志用的filter:log4j 防御sql注入的filter:wall
+    druid:
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      url: jdbc:oracle:thin:@10.169.200.22:1521/cpwspt
+      username: cen_protal
+      password: CEN_PROTAL1234
+      filters: stat,wall,log4j,config
+      #最大的连接数
+      max-active: 100
+      #初始化建立的物理连接数。初始化发生在显示调用init方法，后者第一次getConnection
+      initial-size: 1
+      #获取连接时最大的等待时间
+      max-wait: 60000
+      #最小连接数；
+      min-idle: 1
+      # 间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 保持连接空闲而不被驱逐的最长时间
+      min-evictable-idle-time-millis: 300000
+      # 用来检测连接是否有效的sql,要求是一个查询语句
+      # 如果validationQuery为null，testOnBorrow testOnReturn、testWhileIdle都不会其作用
+      validation-query: select count(1) from tb_dic_hospital
+      # 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-borrow: false
+      # 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能
+      test-on-return: false
+      # 是否缓存preparedStatement，即PSCache
+      pool-prepared-statements: false
+      # 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true
+      max-open-prepared-statements: -1
+
+
+
+
+
+  #配置pagehelper分页插件
+  pagehelper:
+    #数据库方言
+    dialect: oracle
+    # 启用合理化，如果pageNum < 1会查询第一页，如果pageNum > pages会查询最后一页
+    reasonable: true
+
+mybatis:
+  # mapper.xml包地址
+  mapper-locations: classpath:mapper/*.xml
+
+
+
+#应用配置
+resources:
+  # log文件写入地址
+  logdir: logs/
+  # 应用名称
+  appname: pmodel
+  # 日志打印的基础扫描包
+  basepackage: com.commen.pmodel
+
+

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbHisMedicalRecordTjDateMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTjDate">
+    <id column="YLJGBM" jdbcType="VARCHAR" property="YLJGBM" />
+    <id column="TJDATE" jdbcType="VARCHAR" property="TJDATE" />
+    <result column="JZSL" jdbcType="DECIMAL" property="JZSL" />
+    <result column="CFSL" jdbcType="DECIMAL" property="CFSL" />
+    <result column="UPDATETIME" jdbcType="TIMESTAMP" property="UPDATETIME" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    YLJGBM, TJDATE, JZSL, CFSL, UPDATETIME, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTjDateKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_HIS_MEDICAL_RECORD_TJ_DATE
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+      and TJDATE = #{TJDATE,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTjDateKey">
+    delete from TB_HIS_MEDICAL_RECORD_TJ_DATE
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+      and TJDATE = #{TJDATE,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" keyColumn="YLJGBM" keyProperty="YLJGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTjDate" useGeneratedKeys="true">
+    insert into TB_HIS_MEDICAL_RECORD_TJ_DATE (TJDATE, JZSL, CFSL, 
+      UPDATETIME, YL1, YL2
+      )
+    values (#{TJDATE,jdbcType=VARCHAR}, #{JZSL,jdbcType=DECIMAL}, #{CFSL,jdbcType=DECIMAL}, 
+      #{UPDATETIME,jdbcType=TIMESTAMP}, #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="YLJGBM" keyProperty="YLJGBM" parameterType="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTjDate" useGeneratedKeys="true">
+    insert into TB_HIS_MEDICAL_RECORD_TJ_DATE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="TJDATE != null">
+        TJDATE,
+      </if>
+      <if test="JZSL != null">
+        JZSL,
+      </if>
+      <if test="CFSL != null">
+        CFSL,
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="TJDATE != null">
+        #{TJDATE,jdbcType=VARCHAR},
+      </if>
+      <if test="JZSL != null">
+        #{JZSL,jdbcType=DECIMAL},
+      </if>
+      <if test="CFSL != null">
+        #{CFSL,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTjDate">
+    update TB_HIS_MEDICAL_RECORD_TJ_DATE
+    <set>
+      <if test="JZSL != null">
+        JZSL = #{JZSL,jdbcType=DECIMAL},
+      </if>
+      <if test="CFSL != null">
+        CFSL = #{CFSL,jdbcType=DECIMAL},
+      </if>
+      <if test="UPDATETIME != null">
+        UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+      and TJDATE = #{TJDATE,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbHisMedicalRecordTjDate">
+    update TB_HIS_MEDICAL_RECORD_TJ_DATE
+    set JZSL = #{JZSL,jdbcType=DECIMAL},
+      CFSL = #{CFSL,jdbcType=DECIMAL},
+      UPDATETIME = #{UPDATETIME,jdbcType=TIMESTAMP},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where YLJGBM = #{YLJGBM,jdbcType=VARCHAR}
+      and TJDATE = #{TJDATE,jdbcType=VARCHAR}
+  </update>
+</mapper>

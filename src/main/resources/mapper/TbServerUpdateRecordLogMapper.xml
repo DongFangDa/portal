@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wonder.cp.portal.mybatis.mapper.TbServerUpdateRecordLogMapper">
+  <resultMap id="BaseResultMap" type="com.wonder.cp.portal.mybatis.po.TbServerUpdateRecordLog">
+    <id column="FWQBH" jdbcType="VARCHAR" property="FWQBH" />
+    <id column="CZTIME" jdbcType="TIMESTAMP" property="CZTIME" />
+    <result column="CZSJ" jdbcType="VARCHAR" property="CZSJ" />
+    <result column="CZHBZ" jdbcType="VARCHAR" property="CZHBZ" />
+    <result column="YL1" jdbcType="VARCHAR" property="YL1" />
+    <result column="YL2" jdbcType="VARCHAR" property="YL2" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    FWQBH, CZTIME, CZSJ, CZHBZ, YL1, YL2
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServerUpdateRecordLogKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TB_SERVER_UPDATE_RECORD_LOG
+    where FWQBH = #{FWQBH,jdbcType=VARCHAR}
+      and CZTIME = #{CZTIME,jdbcType=TIMESTAMP}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServerUpdateRecordLogKey">
+    delete from TB_SERVER_UPDATE_RECORD_LOG
+    where FWQBH = #{FWQBH,jdbcType=VARCHAR}
+      and CZTIME = #{CZTIME,jdbcType=TIMESTAMP}
+  </delete>
+  <insert id="insert" keyColumn="FWQBH" keyProperty="FWQBH" parameterType="com.wonder.cp.portal.mybatis.po.TbServerUpdateRecordLog" useGeneratedKeys="true">
+    insert into TB_SERVER_UPDATE_RECORD_LOG (CZTIME, CZSJ, CZHBZ, 
+      YL1, YL2)
+    values (#{CZTIME,jdbcType=TIMESTAMP}, #{CZSJ,jdbcType=VARCHAR}, #{CZHBZ,jdbcType=VARCHAR}, 
+      #{YL1,jdbcType=VARCHAR}, #{YL2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="FWQBH" keyProperty="FWQBH" parameterType="com.wonder.cp.portal.mybatis.po.TbServerUpdateRecordLog" useGeneratedKeys="true">
+    insert into TB_SERVER_UPDATE_RECORD_LOG
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="CZTIME != null">
+        CZTIME,
+      </if>
+      <if test="CZSJ != null">
+        CZSJ,
+      </if>
+      <if test="CZHBZ != null">
+        CZHBZ,
+      </if>
+      <if test="YL1 != null">
+        YL1,
+      </if>
+      <if test="YL2 != null">
+        YL2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="CZTIME != null">
+        #{CZTIME,jdbcType=TIMESTAMP},
+      </if>
+      <if test="CZSJ != null">
+        #{CZSJ,jdbcType=VARCHAR},
+      </if>
+      <if test="CZHBZ != null">
+        #{CZHBZ,jdbcType=VARCHAR},
+      </if>
+      <if test="YL1 != null">
+        #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        #{YL2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wonder.cp.portal.mybatis.po.TbServerUpdateRecordLog">
+    update TB_SERVER_UPDATE_RECORD_LOG
+    <set>
+      <if test="CZSJ != null">
+        CZSJ = #{CZSJ,jdbcType=VARCHAR},
+      </if>
+      <if test="CZHBZ != null">
+        CZHBZ = #{CZHBZ,jdbcType=VARCHAR},
+      </if>
+      <if test="YL1 != null">
+        YL1 = #{YL1,jdbcType=VARCHAR},
+      </if>
+      <if test="YL2 != null">
+        YL2 = #{YL2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FWQBH = #{FWQBH,jdbcType=VARCHAR}
+      and CZTIME = #{CZTIME,jdbcType=TIMESTAMP}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wonder.cp.portal.mybatis.po.TbServerUpdateRecordLog">
+    update TB_SERVER_UPDATE_RECORD_LOG
+    set CZSJ = #{CZSJ,jdbcType=VARCHAR},
+      CZHBZ = #{CZHBZ,jdbcType=VARCHAR},
+      YL1 = #{YL1,jdbcType=VARCHAR},
+      YL2 = #{YL2,jdbcType=VARCHAR}
+    where FWQBH = #{FWQBH,jdbcType=VARCHAR}
+      and CZTIME = #{CZTIME,jdbcType=TIMESTAMP}
+  </update>
+</mapper>
